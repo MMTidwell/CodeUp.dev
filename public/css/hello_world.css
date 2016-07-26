@@ -1,0 +1,68 @@
+/*
+-  * change the color and underline of headers
+-  * change background-color: 
+-  * add pic to background, maipulate the position, and size 
+-  * add style to change the list 
+-  * change font of entire page 
+-  * add style to change the font for the entire page 
+-  * change the link style for visited, hover, and active
+*/
+
+h1 {
+    color: ivory;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 4em;
+    background: url(/img/polka_dot.jpg);
+    /*border-radius: 5%*/
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+body {
+	font-size: 0.938em;
+	font-family: courier;
+	font-variant: small-caps;
+	font-style: italic;
+
+	background: linear-gradient(
+		rgba(0, 0, 255, 0.5),
+		rgba(0, 0, 255, 0.5)
+	), url(/img/paisley/paisley.png);
+		/*do not leave trailing comma*/
+	background-size: cover;   
+		/*contain - no-repeat
+		cover - stretches the image to cover the whole page*/
+}
+
+ol {
+	list-style: lower-alpha;
+}
+
+ul {
+	list-style-type: circle;
+}
+
+/* unvisited link */
+a:link {
+    color: darkblue;
+}
+
+/* visited link */
+a:visited {
+    color: gray	;
+}
+
+/* mouse over link */
+a:hover {
+    color: gray;
+}
+
+/* selected link */
+a:active {
+    color: gray;
+}
+
+
