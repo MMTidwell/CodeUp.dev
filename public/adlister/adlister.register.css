@@ -1,0 +1,42 @@
+/*body {
+	
+}*/
+
+/*!
+* Start Bootstrap - Modern Business (http://startbootstrap.com/)
+* Copyright 2013-2016 Start Bootstrap
+* Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+*/
+
+/* Global Styles */
+
+html,
+body {
+   height: 100%;
+   background: url("/img/cupcakes.jpg");
+   background-size: cover;
+   padding-top: 50px;
+}
+
+.ad_form {
+	margin: 0 auto;
+	margin-top: 50px;
+	display: block;
+	padding-top: 4%;
+	padding-bottom: 4%;
+
+	text-align: center;
+	width: 80%;
+	border: 2px solid black;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 2%;
+}
+
+textarea {
+	width: 60%;
+	height: 10%;
+}
+
+input#name {
+	width: 30%;
+}
