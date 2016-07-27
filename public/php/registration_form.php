@@ -5,7 +5,8 @@
     - * username
     - * password
     - * password confirmation
-    - sign me up for the newsletter option, make sure this is checked by default 
+    - * sign me up for the newsletter option, make sure this is checked by default 
+    - add css
 -->
 
 <?php
@@ -18,7 +19,7 @@
 	<title>REG FORM</title>
 </head>
 	<body>
-		<form method="POST" action="/registration_form.php">
+		<form method="POST" action="/php/registration_form.php">
 			<p>
 				<label for="name">Name</label>
 				<input id="name" name="name" type="text" placeholder="First Name">
@@ -50,7 +51,7 @@
 		</form>
 
 	<script type="text/javascript">
-	"use strict"
+	"use strict";
 
 		var password = document.getElementById("password")
 		  , confirm_password = document.getElementById("confirm_password");

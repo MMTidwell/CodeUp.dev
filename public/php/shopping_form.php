@@ -5,5 +5,6 @@
     - size
     - color
     - pattern
-    - cut/fit 
+    - cut/fit
+    - add css 
  -->
