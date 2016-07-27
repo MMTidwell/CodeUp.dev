@@ -73,7 +73,7 @@
 		<form method="GET" action="/adlister/contact.php">
 			<p>
 				<label for="to"></label>
-				<input id="name" type="email" placeholder="To" cols="60" rows="8">
+				<input id="name" type="email" placeholder="To">
 			</p>
 			<p>
 				<label for="from"></label>
