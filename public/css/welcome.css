@@ -6,7 +6,7 @@
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
-  background: url("../img/code.jpg");
+  background: url("../img/original_code.jpg");
 
   /*background-color: white;*/
   background-size: cover;
@@ -48,12 +48,21 @@ body {
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
+.blerb {
+  color: white;
+}
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin-bottom: 20px;
   text-align: center;
   padding-top: 15px;
+  /*padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+*/  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10%;
+  /*border: 3px solid white;*/
 
 }
 
