@@ -7,31 +7,37 @@
 // 4 = 50%
 // 5 = FREE
 
-var amount = 60;
+
+// BEST PRACTICE IS TO -- 
+// 	- HAVE CONSOLE.LOG("") AT THE BOTTOM 
+// 	- NO NUMBERS HARD CODED INTO THE PROGRAM
+
+
+var amount = 100;
 var luckyNumber = Math.floor(Math.random()* 6);
 
 switch (luckyNumber) {
 	case 0:
-		console.log("No discount given, your total is $" + amount);
+		console.log("You got a 0, your total is $" + amount);
 		break;
 	case 1:
-		var one_disc = amount - (amount * .10)
-		console.log("You got a 1, your total is $" + one_disc);
+		var disc = amount - (amount * .10)
+		console.log("You got a 1, your total is $" + disc);
 		break;
 	case 2:
-		var one_disc = amount - (amount * .25)
-		console.log("You got a 2, your total is $" + one_disc);
+		disc = amount - (amount * .25)
+		console.log("You got a 2, your total is $" + disc);
 		break;
 	case 3:
-		var one_disc = amount - (amount * .35)
-		console.log("You got a 3, your total is $" + one_disc);
+		disc = amount - (amount * .35)
+		console.log("You got a 3, your total is $" + disc);
 		break;
 	case 4:
-		var one_disc = amount - (amount * .5)
-		console.log("You got a 4, your total is $" + one_disc);
+		disc = amount - (amount * .5)
+		console.log("You got a 4, your total is $" + disc);
 		break;
 	case 5:
-		var one_disc = amount - (amount * .10)
+		disc = amount - (amount * .10)
 		console.log("Lucky you, you got a 5. Everything is FREE!!!!!");
 		break;
 	// default:
@@ -79,23 +85,3 @@ switch (month) {
 		console.log("December");
 		break;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
