@@ -41,7 +41,7 @@ body {
 	border: 3px solid white;
 	margin: 0 auto;
 	border-radius: 20%;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-bottom: 10px;
   display: block;
 }
@@ -58,7 +58,8 @@ body {
   font-family: fantasy;
   color: white;
   background: rgba(0, 0, 0, 0.5);
-  padding-right: 2%;
+  /*padding-right: 2%;*/
+  margin-top: 8%
 
 }
 
