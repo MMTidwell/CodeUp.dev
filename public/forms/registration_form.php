@@ -19,7 +19,7 @@
 	<title>REG FORM</title>
 </head>
 	<body>
-		<form method="POST" action="/php/registration_form.php">
+		<form method="POST" action="/forms/registration_form.php">
 			<p>
 				<label for="name">Name</label>
 				<input id="name" name="name" type="text" placeholder="First Name">

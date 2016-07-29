@@ -31,7 +31,7 @@
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
     <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/welcome.css">
+    <link rel="stylesheet" href="../personal_website/welcome.css">
   </head>
 
 <!-- NAVBAR
@@ -54,21 +54,21 @@
     <div class="container marketing">
       
       <div class="col-lg-4">
-        <a href="/php/resume.php" target="_blank">
+        <a href="/personal_website/resume.php" target="_blank">
           <img class="img-round" src="/img/resume.jpg" width="140" height="140">
         </a>
         <h2>RESUME</h2>
       </div><!-- /.col-lg-4 -->
       
       <div class="col-lg-4">
-        <a href="/php/portfolio.php" target="_blank">
+        <a href="/personal_website/portfolio.php" target="_blank">
           <img class="img-round" src="/img/about_me.jpg" width="140" height="140">
         </a>
         <h2>PORTFOLIO</h2>
       </div><!-- /.col-lg-4 -->
       
       <div class="col-lg-4">
-        <a href="/php/contact.php" target="_blank">
+        <a href="/personal_website/personal_contact.php" target="_blank">
           <img class="img-round" src="/img/vintage_phone.jpg" width="140" height="140">
         </a>
         <h2>CONTACT</h2>

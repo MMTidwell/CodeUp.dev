@@ -36,7 +36,7 @@ Create order
 </head>
 	<body>
 		<h1 align="center">Welcome to Your New Favorite Pizza Place!</h1>
-		<form method="POST" action="/php/pizza_form.php">
+		<form method="POST" action="/forms/pizza_form.php">
 
 			<div class="sign_in">
 				<h3>Login</h3>

@@ -15,7 +15,7 @@
 </head>
 	<body>
 		<h1>Login Form</h1>
-		<form method="POST" action="/php/login_form.php">
+		<form method="POST" action="/forms/login_form.php">
 			<p>
 				<label for="username">Username or Email:</label>
 				<input id="username" name="username" type="text" placeholder="Username">

@@ -70,7 +70,7 @@
 
    <div class="ad_form">
 	   <h2>Questions, Commints, or Concerns?<br>Don't hesitate to email us!</h2>
-		<form method="GET" action="/adlister/contact.php">
+		<form method="GET" action="/adlister/ads_contact.php">
 			<p>
 				<label for="to"></label>
 				<input id="name" type="email" placeholder="To">
