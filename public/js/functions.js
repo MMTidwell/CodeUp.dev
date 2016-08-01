@@ -1,15 +1,25 @@
 "use strict";
 
-var myNameIs = 'Bob'; // TODO: Fill in your name here.
+var myNameIs = 'Mitt'; // TODO: Fill in your name here.
 
 // TODO:
 // Create a function called 'sayHello' that takes a parameter 'name'.
 // When called, the function should log a message that says hello from the passed in name.
 function sayHello(name) {
-	console.log("Hello " + name)
+	console.log("Hello " + name);
 }
+
+// function sayHello(name) {
+// 	var result = 'hello ' + name;
+// 	return result
+// }
+
 // TODO: Call the function 'sayHello' passing the variable 'myNameIs' as a parameter.
-sayHello(myNameIs)
+sayHello(myNameIs);
+
+// console.log(sayHello(myNameIs));
+
+
 
 
 // Don't modify the following line
