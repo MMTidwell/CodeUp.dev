@@ -32,8 +32,53 @@ var random = Math.floor((Math.random()*100)+1);
 // The log should tell the number passed in and whether it is odd or not.
 function isOdd(number) {
 	var newNum = (number % 2 == 0) ? ("The number: " + number + " is even!") : ("The number: " + number + " is odd!");
-	alert(newNum);
-	// console.log(newNum)
+	// alert(newNum);
+	console.log(newNum)
 }
 // TODO: Call the function 'isOdd' passing the variable 'random' as a parameter.
-isOdd(random)
+isOdd(random);
+
+
+
+
+// taks a needle and a haystack
+// returns true if the needle is inthe haystack, otherwise false
+function stringContains (haystack, needle) {
+	var index = haystack.indexOf(needle);
+	if (index === -1) {
+		return false;
+	} else {
+		return true;
+	}ƒ
+}
+
+// takes a stirng as input
+// return true if there is a space in the string and false if there is not
+function hasASpace (stringToCheck) {
+	var stringHasASpace = stringContains(stringToCheck, ' ');
+	return stringHasASpace;
+}
+
+// take a string and remove the spaces
+// input => hello there lassen
+// output => hellotherelassen
+function removeSpaces (phrase) {
+	while (hasASpace(phrase, ' ')) {
+		phrase = phrase.replace(' ', '');
+	}
+	return phrase;
+}
+
+var result = removeSpaces("Hello Mitters");
+// console.log(result);
+
+
+
+
+
+
+
+
+
+
+
