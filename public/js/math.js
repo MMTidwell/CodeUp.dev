@@ -12,16 +12,12 @@
 "use strict";
 
 // (function() {
+// find out what they want to do - add, subtract, divide, multiply 
+// ask for numbers to plug in 
+// plug in numbers
+// make sure that they are numbers
+// run new function
 
-function math(){
-	do {
-		var toD0 = prompt("What would you like to do?\nAdd, Subtract, Multiply, Divide")
-		if (toDo == 'Add'){
-			return sum()
-		}
-	} while (toDo == '');
-}
-console.log(math())
 
 // Find the sum of 2 numbers
 function sum(a, b) {
