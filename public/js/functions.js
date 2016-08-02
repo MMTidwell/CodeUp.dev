@@ -1,5 +1,6 @@
 "use strict";
 
+(function() {
 var myNameIs = 'Mitt'; // TODO: Fill in your name here.
 
 // TODO:
@@ -72,13 +73,4 @@ function removeSpaces (phrase) {
 var result = removeSpaces("Hello Mitters");
 // console.log(result);
 
-
-
-
-
-
-
-
-
-
-
+})();

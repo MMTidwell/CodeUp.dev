@@ -1,5 +1,6 @@
 "use strict";
 
+(function() {
 // repeats number by number of times
 for (var i = 1; i <= 9; i += 1) {
 	
@@ -12,9 +13,7 @@ var lastLine = 0
 lastLine = lastLine.toString();
 console.log(lastLine.repeat(10));
 
-console.log("\n")
-
-
+console.log("\n");
 
 
 // random number * i value results in 
@@ -25,10 +24,7 @@ for (var i = 1; i <= 10; i += 1) {
 	console.log(randomNumber + "x" + i + "=" + total);
 }
 
-console.log("\n")
-
-
-
+console.log("\n");
 
 
 // is a number odd or even between 20 and 200 @ random
@@ -41,32 +37,12 @@ for (var i = 1; i <= 10; i += 1) {
 	}
 }
 
-console.log("\n")
-
+console.log("\n");
 
 
 for (var i = 100; i <= 5; i -= 5) {
 	console.log(i);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})();
 

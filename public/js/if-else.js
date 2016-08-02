@@ -1,6 +1,6 @@
 "use strict";
 
-
+(function() {
 
 // ----------------------- STUDENT GRADES -----------------------
 // students grades - 70 80 95
@@ -123,17 +123,8 @@ function flipThatCoin() {
 		return "Buy a house.";
 	}
 }
-console.log(flipThatCoin())
-console.log(flipThatCoin())
-console.log(flipThatCoin())
+console.log(flipThatCoin());
+console.log(flipThatCoin());
+console.log(flipThatCoin());
 
-
-
-
-
-
-
-
-
-
-
+})();

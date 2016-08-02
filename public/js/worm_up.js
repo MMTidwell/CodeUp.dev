@@ -1,5 +1,7 @@
 'use strict';
 
+(function() {
+
 function sayHello(name) {
     return 'hello ' + name;
 }
@@ -11,9 +13,9 @@ console.log(sayHello('zach'));
 
 function sayHelloToEveryoneExceptZach (name) {
     if (name == 'zach') {
-        return ('goodbye');
+        return 'goodbye';
     } else {
-        return ('hello ' + name);
+        return 'hello ' + name;
     }
 }
 
@@ -28,8 +30,12 @@ function getRandomNumber () {
 }
 
 // returns true if number is odd, otherwise false
+// function isOdd (number) {
+//     return (number % 2 == 1) ? true : false
+// }
+            // -----or-----
 function isOdd (number) {
-    return (number % 2 == 1) ? (true) : (false)
+    return number % 2 == 1;
 }
 
 var rand = getRandomNumber();
@@ -64,3 +70,5 @@ function sum(x, y) {
 console.log(sum(3, 5));
 
 // expect to see 8
+
+})();

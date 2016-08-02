@@ -1,3 +1,5 @@
 "use strict";
 
-console.log("Hello from external JavaSc");
+(function() {
+	console.log("Hello from external JavaSc");
+})();

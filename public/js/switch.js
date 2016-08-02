@@ -1,5 +1,6 @@
 "use strict";
 
+(function() {
 // 0 = 0%
 // 1 = 10%
 // 2 = 25%
@@ -85,3 +86,5 @@ switch (month) {
 		console.log("December");
 		break;
 }
+
+})();

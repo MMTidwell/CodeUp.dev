@@ -1,5 +1,6 @@
 "use strict";
 
+(function() {
 // starting random 50 - 100
 // client random 1 - 5
 // total cones sold
@@ -11,7 +12,7 @@ do {
 	var conesNeeded = Math.floor(Math.random() * 5) + 1;
 	if (allCones >= conesNeeded) {
 		console.log(conesNeeded + " cones sold.");
-		allCones -= conesNeeded
+		allCones -= conesNeeded;
 	} else if (allCones < conesNeeded) {
 		console.log("Cannot sell you " + conesNeeded + " cones, I only have " + allCones);
 	} else {
@@ -28,3 +29,4 @@ while (i <= 65536) {
 	i = i * 2;
 }
 
+})();
