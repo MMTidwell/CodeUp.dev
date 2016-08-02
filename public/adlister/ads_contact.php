@@ -72,8 +72,9 @@
 	   <h2>Questions, Comments, or Concerns?<br>Don't hesitate to email us!</h2>
 		<form method="GET" action="/adlister/ads_contact.php">
 			<p>
-				<label for="to"></label>
-				<input id="name" type="email" value="KitchenKingdom@me.com">
+				<!-- <label for="to"></label>
+				<input id="name" type="email" value="KitchenKingdom@me.com"> -->
+        KitchenKingdom@me.com
 			</p>
 			<p>
 				<label for="from"></label>
