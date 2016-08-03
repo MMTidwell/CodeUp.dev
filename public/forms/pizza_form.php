@@ -14,15 +14,6 @@
 	var_dump($_POST);
 ?>
 
-Create order<br>
-	How much cheese - normal/light/no cheese (auto normal)<br>
-	Meat toppings - Pepperoni/bacon/grilled chicken/beef/sausage/anchovies/canadian bacon<br>
-	Veggie toppings - pinapple/black olives/tomatoes/jalapeno/mushroom/green peppers/onions/pickles/banana peppers<br>
-	Cheese - Shredded swiss/extra cheese/3 cheese blend/parmesan romano<br>
-	Quantity<br>
-	Button add to cart<br>
-	Promo Code<br>
-	Delivery info - name/phone/address/credit card/additional instructions<br>
 
 <html>
 <head>
@@ -208,16 +199,129 @@ Create order<br>
 					</select>
 				</p>
 				<p>
-					<label for=""></label>
-					<select id="" name="">
-						<option></option>
-						<option></option>
-						<option></option>
-						<option></option>
-						<option></option>
-						<option></option>
-						<option></option>
+					<label for="meat_toppings">Meat Toppings</label>
+					<select id="meat_toppings" name="meat_toppings">
+						<option value="pepperoni">Pepperoni</option>
+						<option value="bacon">Bacon</option>
+						<option value="grilled chicken">Grilled Chicken</option>
+						<option value="beef">Beef</option>
+						<option value="sausage">Sausage</option>
+						<option value="anchovies">Anchovies</option>
+						<option value="ham">Ham</option>
 					</select>
+				</p>
+				<p>
+					<label for="veggies">Veggie Toppings</label>
+					<select id="veggies" name="veggies">
+						<option value="pineapple">Pineapple</option>
+						<option value="black_olives">Black Olives</option>
+						<option value="green_olives">Green Olives</option>
+						<option value="tomatoes">Tomatoes</option>
+						<option value="jalapeno">Jalapeno</option>
+						<option value="mushroom">Mushroom</option>
+						<option value="green_peppers">Green Peppers</option>
+						<option value="onion">Onion</option>
+						<option value="pickles">Pickles</option>
+						<option value="banana_peppers">Banana Peppers</option>
+					</select>
+				</p>
+				<p>
+					<label for="cheese_type">Cheese Toppings</label>
+					<select id="cheese_type" name="cheese_type">
+						<option value="shredded_swiss">Shredded Swiss</option>
+						<option value="extra_cheese">Extra Cheese</option>
+						<option value="three_cheese">Three Cheese Blend</option>
+						<option value="parm_romano">Parmesan Romano</option>
+					</select>
+				</p>
+				<p>
+					<label for="quanitiy">Quantity</label>
+					<input name="quanitiy" id="quanitiy" type="number">
+				</p>
+				<p>
+					<button>Add to Cart!</button>
+				</p>
+			</div>
+			<div class="delivery_location">
+				<h2>Delivery 	Location</h2>
+				<p>
+					<label for="address_type">Type of Address</label>
+					<select id="address_type" name="address_type">
+						<option value="residence" selected>Residence</option>
+						<option value="business">Business</option>
+						<option value="university">University</option>
+						<option value="military">Military</option>
+					</select>
+				</p>
+				<p>
+					<label for="address">Address</label>
+					<input id="address" name="address" type"text" placeholder="Street Address">
+				</p>
+				<p>
+					<label for="address_2">City</label>
+					<input id="address_2" name="address_2" type="text" placeholder="City">
+				
+					<label for="state">State</label>
+					<select id="state" name="state">
+						<option value="">Select</option>
+                        <option value="AL" >Alabama</option>
+                        <option value="AK" >Alaska</option>
+                        <option value="AZ" >Arizona</option>
+                        <option value="AR" >Arkansas</option>
+                        <option value="CA" >California</option>
+                        <option value="CO" >Colorado</option>
+                        <option value="CT" >Connecticut</option>
+                        <option value="DE" >Delaware</option>
+                        <option value="DC" >District of Columbia</option>
+                        <option value="FL" >Florida</option>
+                        <option value="GA" >Georgia</option>
+                        <option value="HI" >Hawaii</option>
+                        <option value="ID" >Idaho</option>
+                        <option value="IL" >Illinois</option>
+                        <option value="IN" >Indiana</option>
+                        <option value="IA" >Iowa</option>
+                        <option value="KS" >Kansas</option>
+                        <option value="KY" >Kentucky</option>
+                        <option value="LA" >Louisiana</option>
+                        <option value="ME" >Maine</option>
+                        <option value="MD" >Maryland</option>
+                        <option value="MA" >Massachusetts</option>
+                        <option value="MI" >Michigan</option>
+                        <option value="MN" >Minnesota</option>
+                        <option value="MS" >Mississippi</option>
+                        <option value="MO" >Missouri</option>
+                        <option value="MT" >Montana</option>
+                        <option value="NE" >Nebraska</option>
+                        <option value="NV" >Nevada</option>
+                        <option value="NH" >New Hampshire</option>
+                        <option value="NJ" >New Jersey</option>
+                        <option value="NM" >New Mexico</option>
+                        <option value="NY" >New York</option>
+                        <option value="NC" >North Carolina</option>
+                        <option value="ND" >North Dakota</option>
+                        <option value="OH" >Ohio</option>
+                        <option value="OK" >Oklahoma</option>
+                        <option value="OR" >Oregon</option>
+                        <option value="PA" >Pennsylvania</option>
+                        <option value="RI" >Rhode Island</option>
+                        <option value="SC" >South Carolina</option>
+                        <option value="SD" >South Dakota</option>
+                        <option value="TN" >Tennessee</option>
+                        <option value="TX" >Texas</option>
+                        <option value="UT" >Utah</option>
+                        <option value="VT" >Vermont</option>
+                        <option value="VA" >Virginia</option>
+                        <option value="WA" >Washington</option>
+                        <option value="WV" >West Virginia</option>
+                        <option value="WI" >Wisconsin</option>
+                        <option value="WY" >Wyoming</option>
+                	</select>
+
+                	<label for="zip">Zip</label>
+                	<input id="zip" name="zip" type="text" placeholder="Zip">
+				</p>
+				<p>
+					<button>Submit Your Order!!</button>
 				</p>
 			</div>
 		</form>
