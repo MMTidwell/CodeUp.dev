@@ -9,7 +9,7 @@
    <meta name="description" content="">
    <meta name="author" content="">
 
-   <title>Kitchen Kingdom - Register</title>
+   <title>Kitchen Kingdom - Ads</title>
 
    <!-- Bootstrap Core CSS -->
    <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
