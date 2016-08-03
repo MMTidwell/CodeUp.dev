@@ -15,9 +15,6 @@
 ?>
 
 Create order<br>
-	Bake - normal/well done (auto normal)<br>
-	Sauce - BBQ/ranch/original (auto original)<br>
-	How much sauce - normal/light/extra/no sauce (auto normal)<br>
 	How much cheese - normal/light/no cheese (auto normal)<br>
 	Meat toppings - Pepperoni/bacon/grilled chicken/beef/sausage/anchovies/canadian bacon<br>
 	Veggie toppings - pinapple/black olives/tomatoes/jalapeno/mushroom/green peppers/onions/pickles/banana peppers<br>
@@ -198,8 +195,28 @@ Create order<br>
 					<select id="how_much_sauce" name="how_much_sauce">
 						<option vlaue="no_sauce">No Sauce</option>
 						<option vlaue="light">Light</option>
-						<option vlaue="normal">Normal</option>
+						<option vlaue="normal" selected>Normal</option>
 						<option vlaue="extra">Extra</option>
+					</select>
+				</p>
+				<p>
+					<label for="how_much_cheese">How Much Cheese</label>
+					<select id="how_much_cheese" name="how_much_cheese">
+						<option value="no_cheese">No Cheese</option>
+						<option value="normal" seleced>Normal</option>
+						<option value="extra_cheese">Extra Cheese</option>
+					</select>
+				</p>
+				<p>
+					<label for=""></label>
+					<select id="" name="">
+						<option></option>
+						<option></option>
+						<option></option>
+						<option></option>
+						<option></option>
+						<option></option>
+						<option></option>
 					</select>
 				</p>
 			</div>

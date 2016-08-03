@@ -2,73 +2,73 @@
 
 (function() {
 
-function sayHello(name) {
-    return 'hello ' + name;
-}
-
-console.log(sayHello('zach'));
-
-// expect to see 'hello zach' in the console
-//--------------------------------------------------------------------
-
-function sayHelloToEveryoneExceptZach (name) {
-    if (name == 'zach') {
-        return 'goodbye';
-    } else {
+    function sayHello(name) {
         return 'hello ' + name;
     }
-}
 
-console.log(sayHelloToEveryoneExceptZach('Ryan'));
+    console.log(sayHello('zach'));
 
-// expect to see 'hello Ryan' in the console
-//--------------------------------------------------------------------
+    // expect to see 'hello zach' in the console
+    //--------------------------------------------------------------------
 
-// returns a random number between 1 and 100
-function getRandomNumber () {
-    return Math.floor(Math.random() * 100) + 1;
-}
+    function sayHelloToEveryoneExceptZach (name) {
+        if (name == 'zach') {
+            return 'goodbye';
+        } else {
+            return 'hello ' + name;
+        }
+    }
 
-// returns true if number is odd, otherwise false
-// function isOdd (number) {
-//     return (number % 2 == 1) ? true : false
-// }
-            // -----or-----
-function isOdd (number) {
-    return number % 2 == 1;
-}
+    console.log(sayHelloToEveryoneExceptZach('Ryan'));
 
-var rand = getRandomNumber();
+    // expect to see 'hello Ryan' in the console
+    //--------------------------------------------------------------------
 
-if (isOdd(rand)) {
-    console.log(rand + ' is odd');
-} else {
-    console.log(rand + ' is not odd');
-}
+    // returns a random number between 1 and 100
+    function getRandomNumber () {
+        return Math.floor(Math.random() * 100) + 1;
+    }
 
-// expect to see '4 is not odd'
-//--------------------------------------------------------------------
+    // returns true if number is odd, otherwise false
+    // function isOdd (number) {
+    //     return (number % 2 == 1) ? true : false
+    // }
+                // -----or-----
+    function isOdd (number) {
+        return number % 2 == 1;
+    }
 
-for (var i = 1; i <= 10; i += 1) {
-    console.log(i);
-}
+    var rand = getRandomNumber();
 
-// expect to see 1 through 10
-//--------------------------------------------------------------------
+    if (isOdd(rand)) {
+        console.log(rand + ' is odd');
+    } else {
+        console.log(rand + ' is not odd');
+    }
 
-for (var i = 10; i > 0; i -= 1) {
-    console.log(i);
-}
+    // expect to see '4 is not odd'
+    //--------------------------------------------------------------------
 
-// expect to see 10 through 1
-// -------------------------------------------------------------------
+    for (var i = 1; i <= 10; i += 1) {
+        console.log(i);
+    }
 
-function sum(x, y) {
-    return x + y;
-}
+    // expect to see 1 through 10
+    //--------------------------------------------------------------------
 
-console.log(sum(3, 5));
+    for (var i = 10; i > 0; i -= 1) {
+        console.log(i);
+    }
 
-// expect to see 8
+    // expect to see 10 through 1
+    // -------------------------------------------------------------------
+
+    function sum(x, y) {
+        return x + y;
+    }
+
+    console.log(sum(3, 5));
+
+    // expect to see 8
 
 })();

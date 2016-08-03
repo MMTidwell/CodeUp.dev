@@ -1,4 +1,4 @@
-// (function(){
+(function(){
     "use strict";
 
     // TODO: Create an array holding the names of the eight planets in our solar system in order, starting closest to the sun.
@@ -64,7 +64,39 @@
     // TODO: Read the console.log() statement above. Write code to perform the step it describes.
     planets.sort()
     logPlanets();
-// })();
+
+    //write a function that takes an array and returns a random element from that array
+    function sampleRandom() {
+        var randomlyPicksOne = planets[Math.floor(Math.random() * planets.length)];
+        return randomlyPicksOne;
+    }
+    console.log(sampleRandom())
+
+    var sampleArray = [1, 2, 3, 4]
+    function sample() {
+        var radomPickOne = sampleArray[Math.floor(Math.random() * sampleArray.length)];
+        return radomPickOne;
+    }
+    console.log(sample())
+
+    // sum the digits in a number
+    // turn number into a string
+    // turn string into array
+    // loop through that array and add together 
+    
+    function sumTheDigits(number) {
+        number = number.toString();
+        var numberArray = number.split('');
+        var sum = 0;
+        
+        numberArray.forEach(function(number){
+            sum += parseInt(number);
+        });
+        return sum;
+    }
+    console.log(sumTheDigits(394857349587));
+
+})();
 
 
 

@@ -75,7 +75,6 @@
          <p>
             <label for="typeOfAppliance"></label>
             <select id="typeOfAppliance" name="typeOfAppliance">
-               <option value="">select</option>
                <option value="baking">Baking</option>
                <option value="cookware">Cookware</option>
                <option value="cutlery">Cutlery</option>
