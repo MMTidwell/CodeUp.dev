@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)http://php.codeup.com/content/examples/javascript/defuse-the-bom.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Defuse the BOM</title>
+</head>
+<body>
+
+<h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
+<button id="defuser">Defuse the BOM</button>
+
+<script>
+(function() {
+    "use strict";
+
+    var detonationTimer = 5;
+
+    // TODO: This function needs to be called once every second
+    function updateTimer() {
+        if (detonationTimer == 0) {
+            alert('EXTERMINATE!');
+            document.body.innerHTML = '';
+        } else if (detonationTimer > 0) {
+            document.getElementById('timer').innerHTML = detonationTimer;
+        }
+        detonationTimer--;
+    }
+    updateTimer();
+    var defuse = setInterval(updateTimer, 1000);
+
+    // TODO: When this function runs, it needs to
+    // cancel the interval/timeout for updateTimer()
+    function defuseTheBOM() {
+        clearInterval(defuse);
+        console.log("defuse the bomb");
+    }
+    // var timeoutId = setTimeout(defuseTheBOM, delay)
+
+
+    // Don't modify anything below this line!
+    //
+    // This causes the defuseTheBOM() function to be called
+    // when the "defuser" button is clicked.
+    // We will learn about events in the DOM lessons
+    var defuser = document.getElementById('defuser');
+    defuser.addEventListener('click', defuseTheBOM);
+})();
+</script>
+
+
+</body></html>
