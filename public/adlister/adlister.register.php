@@ -30,43 +30,46 @@
 </head>
 
 <body>
-<!-- _______NAV BAR________ -->
-   <nav class="top-navbar">
-      <!-- Navigation -->
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-          <div class="container">
-              <!-- Brand and toggle get grouped for better mobile display -->
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="index.html">Kitchen Kingdom</a>
-              </div>
-              <!-- Collect the nav links, forms, and other content for toggling -->
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                      <li>
-                          <a href="about.html">Login</a>
-                      </li>
-                      <li>
-                          <a href="services.html">Sign Up</a>
-                      </li>
-                      <li>
-                          <a href="contact.html">Browse Items</a>
-                      </li>
-                      <li>
-                          <a href="#">Create a Listing</a>
-                      </li>
-                  </ul>
-              </div>
-              <!-- /.navbar-collapse -->
-          </div>
-          <!-- /.container -->
-      </nav>
-   </nav>
+<!-- Navigation -->
+    <nav class="top-navbar">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                    </button>
+                     <a class="navbar-brand" href="http://codeup.dev/adlister/adlister_welcome.php">Kitchen Kingdom</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://codeup.dev/adlister/login.php">Login</a>
+                       </li>
+                       <li>
+                            <a href="http://codeup.dev/adlister/adlister.register.php">Sign Up</a>
+                        </li>
+                        <li>
+                            <a>Browse Items</a>
+                        </li>
+                        <li>
+                            <a href="http://codeup.dev/adlister/ads.create.php">Create a Listing</a>
+                        </li>
+                        <li>
+                            <a href="http://codeup.dev/adlister/ads_contact.php">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+    </nav>
 
 
 
@@ -107,6 +110,9 @@
           </p>
       </form>
    </div>
+   <footer class="site-footer">        
+      <p>&emsp;Copyright &copy; Kitchen Kingdom 2016</p>
+   </footer>
 
 <script type="text/javascript">
 "use strict"

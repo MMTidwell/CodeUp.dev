@@ -1,7 +1,16 @@
+/*
+http://codeup.dev/adlister/adlister_welcome.php
 http://codeup.dev/adlister/adlister.register.php
 http://codeup.dev/adlister/login.php
 http://codeup.dev/adlister/ads_contact.php
 http://codeup.dev/adlister/ads.create.php
+
+Needed from Liz--
+/adlister/welcome.php
+/adlister/ads.index.php
+/adlister/ads.show.php
+*/
+
 
 /*body {
 	
@@ -13,7 +22,7 @@ http://codeup.dev/adlister/ads.create.php
 * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
 */
 
-/* Background and Forms */
+/* ----------------Background and Forms---------------- */
 
 html,
 body {
@@ -49,7 +58,7 @@ input#name {
 input#pic {
 	align: center;
 }
-
+/*
 .img-portfolio {
     margin-bottom: 30px;
 }
@@ -57,32 +66,38 @@ input#pic {
 .img-hover:hover {
     opacity: 0.8;
 }
-.container {
 
-}
+.portfolio-item {
+    margin-bottom: 25px;
+}*/
+
+
+/* ---------------- NAVBAR ---------------- */
 .navbar-inverse .navbar-nav > li > a {
     color: black;
     font-weight: bold;
 }
+
 .navbar-inverse .navbar-brand {
     color: black;
     font-weight: bold;
 }
+
 .navbar-inverse {
     background-color: #72998A;
     border-color: #080808;
 }
+
 .navbar-fixed-top {
     max-height: 340px;
     background-color: #72998A;
 }
-.portfolio-item {
-    margin-bottom: 25px;
-}
 
-/*Body Styles*/
 
-.jumbotron {
+
+/* ----------------Body Styles---------------- */
+
+/*.jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 30px;
@@ -91,28 +106,46 @@ input#pic {
     background-color: rgba(255, 255, 255, 0.5);
     border: 2px solid black;
     border-radius: 2%;
-}
+}*/
 
-h1.page-header {
+/*.item-description {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid black;
+    border-radius: 2%;
+    margin-top: 15px;
+    text-align: center;
+}*/
+
+/*h3 > a {
     color: black;
-}
-small {
+}*/
+
+/*h1.page-header {
+    color: black;
+}*/
+
+/*small {
     color: white !important;
-}
+}*/
 
 /* 404 Page Styles */
 
-.welcome {
+/*.welcome {
     font-size: 75px;
 }
+*/
 
-/* Footer Styles */
+
+/* ----------------Footer Styles---------------- */
 
 footer {
-    margin: 50px 0;
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    font-weight: bold;
 }
 
-/* Responsive Styles */
+/* ----------------Responsive Styles---------------- */
 
 @media(max-width:991px) {
     .customer-img,
