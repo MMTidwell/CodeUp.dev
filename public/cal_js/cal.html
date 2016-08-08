@@ -1,0 +1,58 @@
+<!-- WHERE TO START
+- √ do not type in input boxes
+- result goes in far left field
+- get js done first 
+
+ONCE IT IS BASIC
+- add style once it works
+- get creative
+- add decimal
+- add extra math (binary or hex)
+- have only one field for input
+- reverse polish notation (the operators will come before the operand) -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" href="/cal_js/cal.css">
+</head>
+<body>
+	<div class="input">
+		<label for="left_input"></label>
+		<input id="left_input" name="left_input" readonly>
+
+		<label for="mid_input"></label>
+		<input id="mid_input" name="operand" readonly>
+
+		<label for="right_input"></label>
+		<input id="right_input" name="right_input" readonly>
+	</div>
+		<div>
+			<button class="button numbers" value="1">1</button>
+			<button class="button numbers" value="2">2</button>
+			<button class="button numbers" value="3">3</button>
+			<button class="button operands">+</button>
+		</div>
+		<div>
+			<button class="button numbers">4</button>
+			<button class="button numbers">5</button>
+			<button class="button numbers">6</button>
+			<button class="button operands">-</button>
+		</div>
+		<div>
+			<button class="button numbers">7</button>
+			<button class="button numbers">8</button>
+			<button class="button numbers">9</button>
+			<button class="button operands">X</button>
+		</div>
+		<div>
+			<button class="button clear">C</button>
+			<button class="button numbers">0</button>
+			<button class="button equals">=</button>
+			<button class="button operands">/</button>
+		</div>
+	<script src="/cal_js/cal.js"></script>
+</body>
+</html>

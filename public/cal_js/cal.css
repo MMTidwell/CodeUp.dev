@@ -1,0 +1,41 @@
+/*HTML
+	- √ 3 imputs on the screen
+	- √ put buttons on the screen
+	- √ thisInput = document.getElementById('leftInput')
+TASKS
+	- √ buttons, div, anchor tags
+		- √ div or anchor tags = thisElement.innerText or innterHTML
+		- √ buttons 
+START W 
+	- √ console.log every number/button with an event listener
+	- √ move into writing number values into the left input 
+CONCERN
+	- is the value of 'a' number or string -> use parseFloat()
+	- each time you hit a button or number the input is replaced not appended rather than placed next to
+	- var display = document.getElementById("leftInput")value 
+	- display = display += newValue
+	- as soon as we hit an operator, we need our focus to point to the rightInput
+	- conditions that check if leftInput has something if the operatorInput has something
+	- undefined, getting NaN, divide by 0
+*/
+
+.button {
+	height: 50px; 
+	width: 50px;
+	margin: 1px;
+	background-color: black;
+	color: white;
+}
+
+input {
+	height: 25px;
+	width: 87px;
+	border: 1px solid black;
+}
+
+input#mid_input {
+	height: 25px;
+	width: 15px;
+	border: 1px solid black;
+	text-align: center;
+}
