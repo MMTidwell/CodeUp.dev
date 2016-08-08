@@ -58,7 +58,7 @@ input#name {
 input#pic {
 	align: center;
 }
-/*
+
 .img-portfolio {
     margin-bottom: 30px;
 }
@@ -69,7 +69,7 @@ input#pic {
 
 .portfolio-item {
     margin-bottom: 25px;
-}*/
+}
 
 
 /* ---------------- NAVBAR ---------------- */
@@ -97,7 +97,7 @@ input#pic {
 
 /* ----------------Body Styles---------------- */
 
-/*.jumbotron {
+.jumbotron {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 30px;
@@ -106,34 +106,34 @@ input#pic {
     background-color: rgba(255, 255, 255, 0.5);
     border: 2px solid black;
     border-radius: 2%;
-}*/
+}
 
-/*.item-description {
+.item-description {
     background-color: rgba(255, 255, 255, 0.5);
     border: 2px solid black;
     border-radius: 2%;
     margin-top: 15px;
     text-align: center;
-}*/
+}
 
-/*h3 > a {
+h3 > a {
     color: black;
-}*/
+}
 
-/*h1.page-header {
+h1.page-header {
     color: black;
-}*/
+}
 
-/*small {
+small {
     color: white !important;
-}*/
+}
 
-/* 404 Page Styles */
+ 404 Page Styles 
 
-/*.welcome {
+.welcome {
     font-size: 75px;
 }
-*/
+
 
 
 /* ----------------Footer Styles---------------- */

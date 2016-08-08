@@ -94,10 +94,16 @@
         <!-- /.row -->
 
 
-        <div class="ad_form">
-            <h1>Welcome to<br>Kitchen Kingdom!</h1>
-            <br>
-            <h4>Your source for all the unique kitchen gadgets<br>you never knew you needed</h4>
+        <div class="row">
+
+            <div class="col-lg-12">
+                <div class="jumbotron">
+                    <h1>Welcome to Kitchen Kingdom!
+                    </h1>
+                    <p>Your source for all the unique kitchen gadgets you never knew you needed</p>
+                </div>
+            </div>
+
         </div>
 		<!-- </div> -->
 
