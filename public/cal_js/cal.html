@@ -1,17 +1,3 @@
-<!-- WHERE TO START
-- √ do not type in input boxes
-- result goes in far left field
-- get js done first 
-
-ONCE IT IS BASIC
-- add style once it works
-- get creative
-- add decimal
-- add extra math (binary or hex)
-- have only one field for input
-- reverse polish notation (the operators will come before the operand) -->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,9 +16,9 @@ ONCE IT IS BASIC
 		<input id="right_input" name="right_input" readonly>
 	</div>
 		<div>
-			<button class="button numbers" value="1">1</button>
-			<button class="button numbers" value="2">2</button>
-			<button class="button numbers" value="3">3</button>
+			<button class="button numbers">1</button>
+			<button class="button numbers">2</button>
+			<button class="button numbers">3</button>
 			<button class="button operands">+</button>
 		</div>
 		<div>
@@ -45,14 +31,15 @@ ONCE IT IS BASIC
 			<button class="button numbers">7</button>
 			<button class="button numbers">8</button>
 			<button class="button numbers">9</button>
-			<button class="button operands">X</button>
+			<button class="button operands">*</button>
 		</div>
 		<div>
-			<button class="button clear">C</button>
+			<button class="button clear" id="clear">C</button>
 			<button class="button numbers">0</button>
-			<button class="button equals">=</button>
+			<button class="button equals" id="equals">=</button>
 			<button class="button operands">/</button>
 		</div>
+	</div>
 	<script src="/cal_js/cal.js"></script>
 </body>
 </html>
