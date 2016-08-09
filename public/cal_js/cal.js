@@ -1,39 +1,3 @@
-// WHERE TO START
-// - √ do not type in input boxes 
-// - √ fill in the inputs with buttons 
-// - √ result goes in far left field
-// - √ get js done first 
-
-// ONCE IT IS BASIC
-// - add style once it works
-// - get creative
-// - add decimal
-// - add extra math (binary or hex)
-// - have only one field for input
-// - reverse polish notation (the operators will come before the operand)
-
-// HTML
-// 	- √ 3 inputs on the screen
-// 	- √ put buttons on the screen
-// 	- √ thisInput = document.getElementById('leftInput')
-// TASKS
-// 	- √ buttons, div, anchor tags
-// 		- √ div or anchor tags = thisElement.innerText or innterHTML
-// 		- √ buttons 
-// START W 
-// 	- √ console.log every number/button with an event listener
-// 	- √ move into writing number values into the left input 
-// CONCERN
-// 	- √ is the value of 'a' number or string -> use parseFloat()
-// 	- √ each time you hit a button or number the input is replaced not appended rather than placed next to
-// 	- √ var display = document.getElementById("leftInput")value 
-// 	- √ display = display += newValue
-// 	- √ as soon as we hit an operator, we need our focus to point to the rightInput
-// 	- √ conditions that check if leftInput has something if the operatorInput has something
-// 	- undefined, getting NaN, divide by 0
-
-
-
 (function(){
 	// getting numbers --------------------------------------------------------
 	var number = document.getElementsByClassName("numbers");
