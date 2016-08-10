@@ -1,3 +1,8 @@
+// notes to self --------------------------------------------------------
+// - Start adding in more comments from the beginning 
+
+
+"use strict";
 (function(){
 	// getting numbers --------------------------------------------------------
 	var number = document.getElementsByClassName("numbers");

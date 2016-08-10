@@ -1,0 +1,37 @@
+<!-- AIzaSyDsEtu_2A8JW_wlAQqynIaDexSMZk6pggk -->
+<!-- 
+√ - generate a map that shows the city with your fav restaurant using geocoding
+√ - redraw the map of the above location at zoom levels 5, 15, 20
+√ - create a marker on the location of fav restaurant and adjust the zoom to allow for best viewing distance
+√ - create an info window with the name of said restaurant
+√ - zoom in and verify that you have id the location (double check with google)
+
+Bonuses
+- info windows can contain basic HTML, not just plain text. Add some info about restaurant to the info window like why you like it....
+- research google maps events, make sure that the info doesn't display until marker is clicked
+- add a drop animation to the marker when the page first loads
+- re-factor your code to display at least 3 fav restaurants with info about each. You will most likely need a .forEach() instead of a for loop
+- replace the generic marker icon with an image that is more appropriate for each restaurant
+ -->
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>Maps of Restaurants</title>
+ 	<link rel="stylesheet" type="text/css" href="/google_maps/google.maps.api.css">
+ </head>
+ <body>
+ 	<h1>My Fav Restaurants!</h1>
+
+ 	<div id="map_area"></div>
+ 	<div id="buttons">
+		<button id="thai">Thai</button>
+ 		<button id="sushi">Sushi</button>
+ 		<button id="chinese">Chinese</button>
+ 		<button id="indian">Indian</button>
+	</div>
+ 	<!-- script tag holds google maps and API key -->
+ 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsEtu_2A8JW_wlAQqynIaDexSMZk6pggk"></script>
+ 	<!-- script tag holds onto the JS file -->
+ 	<script src="/google_maps/google.maps.api.js"></script>
+ </body>
+ </html>

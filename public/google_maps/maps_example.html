@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Maps!</title>
+
+	<style>
+		#map-canvas {
+			width: 650px;
+			height: 481px;
+			border: 2px solid red;
+		}
+	</style>
+
+</head>
+<body>
+	<h1>Maps!</h1>
+	<!-- sets the area for the map -->
+	<div id="map-canvas"></div>
+
+	<!-- with our API key it allows us to load the google maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsEtu_2A8JW_wlAQqynIaDexSMZk6pggk"></script>
+
+	<script>
+		"use strict";
+// TELLS MAP FOCUS POINT, CENTER, AND ZOOM------------------------------------
+		var mapOptions = {
+			// sets the zoom for the map
+			// zoom settings - 0 => world, 10 => city, 21 => gets close up
+			zoom: 19,
+
+			// centers the point on the map
+			center: {
+				lat: 29.426791,
+		        lng: -98.489602
+			},
+// TYPE OF MAP VIEW------------------------------------------------------------
+			// setting the map type
+			// google earth satellite image
+		    // mapTypeId: google.maps.MapTypeId.SATELLITE 
+
+		    // google map default
+		    mapTypeId: google.maps.MapTypeId.ROADMAP 
+
+		    // google map mixture of road map and satellite views
+		    // mapTypeId: google.maps.MapTypeId.HYBRID
+
+		    // google map physical map based on terrain infp
+		   // mapTypeId: google.maps.MapTypeId.TERRAIN
+		};
+
+// GEOCODING-----------------------------------------------------------------------
+		// Geocoding - allows for locations such as addresses, cities, states...
+		// sets our address to geocode
+		var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+		// sets init geocoder object
+		var geocoder = new google.maps.Geocoder();
+		// geocode our address
+		geocoder.geocode({"address": address}, function(results, status) {
+			// checks for a successful results
+			if (status == google.maps.GeocoderStatus.OK) {
+				// recenters map over the address
+				map.setCenter(results[0].geometry.location);
+			} else {
+				// shows an error message with the statsu of request
+				alert("Geocoding was not successful - STATUS: " + status);
+			}
+		})
+
+// SHOWS MAP------------------------------------------------------------------------
+		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+		
+// MARKERS--------------------------------------------------------------------------
+		// Note - when adding in the marker make sure that the map var is defined before
+		//building a marker for codeup
+		var codeup = { lat: 29.426791, lng: -98.489602 };
+
+		// adding a marker to our existing map
+		var marker = new google.maps.Marker({
+			position: codeup,
+			map: map
+		});
+
+// ADDING AN INFO BOX ON MARKER-----------------------------------------------------
+		// creates window and puts in string
+		var infowindow = new google.maps.InfoWindow({
+			content: "Changing the world, one programmer at a time."
+		});
+
+		// opens window when using our map and marker
+		infowindow.open(map, marker);
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

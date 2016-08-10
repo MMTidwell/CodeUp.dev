@@ -1,0 +1,36 @@
+button {
+	height: 5%;
+	width: 23%;
+	background-color: black;
+	color: white;
+	font-family: fantasy;
+	font-size: 20px;
+	display: inline block;
+	margin: 0 auto;
+	padding-top: 2%;
+	margin-top: 3%;
+}
+
+#map_area {
+	width: 650px;
+	height: 481px;
+	border: 2px solid black;
+	margin: 0 auto;
+}
+
+#buttons {
+	margin: 0 auto;
+	width: 380px;
+	display: block;
+}
+
+h1 {
+	text-align: center;
+	font-family: fantasy;
+	color: white;
+}
+
+body {
+	background-image: url("/google_maps/world.jpg");
+	background-size: cover;
+}
