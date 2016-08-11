@@ -34,31 +34,43 @@ $(document).ready(function() {
 	// 	alert("h1 with id 'codeup' was clicked");
 	// });
 	
-	// HOVER Changes the background color when hovering over h1
-	$('#codeup').hover (
-		function() {
-			$(this).css('background-color', '#FF0');	
-		},
-		function() {
-			$(this).css('background-color', '#FFF');
-		}
-	);
+	// // HOVER Changes the background color when hovering over h1
+	// $('#codeup').hover (
+	// 	function() {
+	// 		$(this).css('background-color', '#FF0');	
+	// 	},
+	// 	function() {
+	// 		$(this).css('background-color', '#FFF');
+	// 	}
+	// );
 
-	// DOUBLE CLICK EVENT
-	$("p").dblclick(function(){
-		$("p").css("font-size", "18px");
-	});
+	// // DOUBLE CLICK EVENT
+	// $("p").dblclick(function(){
+	// 	$("p").css("font-size", "18px");
+	// });
 
-	// HOVER EVENT
-	$('li').hover (
-		function() {
-			$(this).css("color", "red");
-		},
-		function() {
-			$(this).css("color", "black");
-		}
-	);
-	
+	// // HOVER EVENT
+	// $('li').hover (
+	// 	function() {
+	// 		// mouse in
+	// 		$(this).css("color", "red");
+	// 	},
+	// 	function() {
+	// 		// mouse out
+	// 		$(this).css("color", "black");
+	// 	}
+	// );
+
+	// // KEYDOWN this does need to be done either in a input field or the body of the doc
+	// $("body").keydown(function() {
+	// 	alert('.keydown() event fired');
+	// });	
+
+	// // KEYUP this is the same as keydown(), note that both doesnt need to be there.
+	// $("body").keyup(function() {
+	// 	alert('.keyUP() event fired');
+	// });
+
 });
 
 
