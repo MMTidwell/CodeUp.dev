@@ -20,7 +20,7 @@
 
 	// ADDING EVENT LISTENERS TO BUTTONS-------------------------------------------
 	document.getElementById("thai").addEventListener('click', function() {
-		// setting object to hold the zoom valye
+		// setting object to hold the zoom value
 		var mapOptions = {
 			zoom: 15
 		} 
@@ -61,23 +61,28 @@
 	});
 
 	// GEOCODING-------------------------------------------------------------------
-
 	function renderMap(address, info) {
+		// sets init geocoder object
 		var geocoder = new google.maps.Geocoder();
 
+		// geocode the address that is passed in from button when clicked
 		geocoder.geocode({"address": address}, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
+				// recenters the map over the new address
 				map.setCenter(results[0].geometry.location);
 
+				// adds marker to map
 				var marker = new google.maps.Marker ({
 					position: results[0].geometry.location,
 					map: map
 				})
 				
+				// adds info window to map
 				var infowindow = new google.maps.InfoWindow ({
 					content: info
 				})
 
+				// adds both the marker and info window at same time
 				infowindow.open(map, marker);
 
 			} else {
