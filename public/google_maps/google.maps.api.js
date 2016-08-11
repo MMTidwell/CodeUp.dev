@@ -26,7 +26,6 @@
 		} 
 		var address = "5999 De Zavala Rd, San Antonio, TX 78249";
 		var info = "Thai Bistro"
-		map = new google.maps.Map(document.getElementById("map_area"), mapOptions);
 		renderMap(address, info);
 	}); 
 
@@ -36,7 +35,6 @@
 		}
 		var address = "9921 Interstate 10 Frontage Rd, San Antonio, TX 78230";
 		var info = "Wasabi"
-		map = new google.maps.Map(document.getElementById("map_area"), mapOptions);
 		renderMap(address, info);
 	});
 
@@ -45,8 +43,7 @@
 			zoom: 15
 		}
 		var address = "3505 Wurzbach Rd #102, San Antonio, TX 78238";
-		var info = "Sichuan House"
-		map = new google.maps.Map(document.getElementById("map_area"), mapOptions);		
+		var info = "Sichuan House"	
 		renderMap(address, info);
 	});
 
@@ -56,7 +53,6 @@
 		}
 		var address = "4987 NW Loop 410, San Antonio, TX 78229";
 		var info = "Spice"
-		map = new google.maps.Map(document.getElementById("map_area"), mapOptions);
 		renderMap(address, info);
 	});
 
@@ -67,6 +63,8 @@
 
 		// geocode the address that is passed in from button when clicked
 		geocoder.geocode({"address": address}, function(results, status) {
+			// resets the map zoom for each time a button is clicked
+			map.setZoom(15);
 			if (status == google.maps.GeocoderStatus.OK) {
 				// recenters the map over the new address
 				map.setCenter(results[0].geometry.location);
