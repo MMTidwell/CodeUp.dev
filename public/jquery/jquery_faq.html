@@ -9,30 +9,13 @@
 		body {
 			background-image: url("/jquery/jquery_faq.jpg");
 			background-size: cover;
-			color: firebrick;
-			font-weight: bold;
+			color: white;
+			/*font-weight: bold;*/
 		}
 	</style>
 </head>
 
 <body>
-
-	<script src="/jquery/jquery-3.1.0.js"></script>
-	<script>
-		"use strict";
-
-		$(document).ready(function() {
-			var addDDs = $('dd');
-
-			addDDs.addClass("invisible");
-
-			$('#show-important').click(function(event) {
-				event.preventDefault();
-				$("dd").toggleClass("invisible")
-			});
-		});
-	</script>
-
 	<dl>
 		<dt>Q. Why are people allowed to have firearms in some national parks?</dt>
 		<dd><em>A. A new federal law (Sec. 512 of P.L. 111-24), effective February 22, 2010, makes national parks –
@@ -91,8 +74,80 @@
 		administer the law, administer it fairly, and to ensure the safety of our visitors, the parks and their
 		resources, while all visitors enjoy these special places.</em></dd>
 	</dl>
-	<a href="#" id="show-important">Click to toggle, and show or hide the ansers!</a>
+	<a href="#" id="show-important">Click to toggle, and show or hide the answers!</a>
+
+	<h3>Big Bend National Park</h3>
+	<ul>
+		<li>Big bend is the only stat park to have an entire mountain range within its borders</li>
+		<li>Big Bend is larger than Rhode Island</li>
+		<li>Named after the 'big bend' in the Rio Grande in west Texas</li>
+		<li>The treaty of Guadalupe Hidalgo was signed and claimed the Rio Grande as the official border of Texas and mexico.</li>
+	</ul>
+
+	<h3>Ala Kahakai</h3>
+	<ul>
+		<li>Ala Kahakai NHT is a 175-mile trail corridor full of cultural and historical significance</li>
+		<li>Established in 2000</li>
+		<li>It traverses through hundreds of ancient Hawaiian settlement sites and over 200 ahupua'a</li>
+		<li>Home to many endangered animals, including the sea turtle.</li>
+	</ul>
+
+	<h3>Aztec Ruins</h3>
+	<ul>
+		<li>The buildings that form a part of the Aztec Ruins have been found to be dating back to somewhere between 11th and 13th centuries.</li>
+		<li>It is believed that Puebloan people left the Aztec Ruins in about 1300 A.D.</li>
+		<li>The first known rediscovery of Aztec Ruins National Monument took place in 1859, by geologist Dr. John S. Newberry.</li>
+		<li>Most of the artifacts excavated from Aztec Ruins are exhibited at the American Museum of Natural History in New York. Others are displayed at the Western Archeological Conservation Center in Tucson, while a few are at the park itself.</li>
+	</ul>
+
+
+	<script src="/jquery/jquery-3.1.0.js"></script>
+	<script>
+		"use strict";
+
+		$(document).ready(function() {
+			var addDDs = $('dd');
+
+			addDDs.addClass("invisible");
+
+			$('#show-important').click(function(event) {
+				event.preventDefault();
+				$("dd").toggleClass("invisible");
+			});
+
+			// Create jQuery code that makes the first li element in each ul have font-weight: bold.
+			$("ul").each(function(index, element) {
+				$(this).children().first().css("font-weight", "bold");	
+			});
+
+			// Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
+			$('li').click(function(event) {
+				$(this).parent().first().addClass("invisible");
+			});			
+
+			// // kinda sorta working but not really
+			// $("h3").click(function() {
+			// 	$(this).parent().children("ul").toggle();
+			// });
+
+		});
+	</script>
 
 	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
