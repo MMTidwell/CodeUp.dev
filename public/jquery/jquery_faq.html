@@ -10,7 +10,6 @@
 			background-image: url("/jquery/jquery_faq.jpg");
 			background-size: cover;
 			color: white;
-			/*font-weight: bold;*/
 		}
 	</style>
 </head>
@@ -112,7 +111,7 @@
 
 			$('#show-important').click(function(event) {
 				event.preventDefault();
-				$("dd").toggleClass("invisible");
+				$("dd").toggle("invisible");
 			});
 
 			// Create jQuery code that makes the first li element in each ul have font-weight: bold.
@@ -122,14 +121,14 @@
 
 			// Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
 			$('li').click(function(event) {
-				$(this).parent().first().addClass("invisible");
+				$(this).parent().first().hide("invisible");
 			});			
 
-			// // kinda sorta working but not really
-			// $("h3").click(function() {
-			// 	$(this).parent().children("ul").toggle();
-			// });
-
+			// .next() pulls siblings since h3 does not have a child element
+			$('h3').click(function(event) {
+				$(this).next().toggle("invisible");
+			});	
+			
 		});
 	</script>
 
