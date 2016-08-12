@@ -111,7 +111,7 @@
 
 			$('#show-important').click(function(event) {
 				event.preventDefault();
-				$("dd").toggle("invisible");
+				$("dd").fadeToggle("invisible");
 			});
 
 			// Create jQuery code that makes the first li element in each ul have font-weight: bold.
@@ -126,7 +126,7 @@
 
 			// .next() pulls siblings since h3 does not have a child element
 			$('h3').click(function(event) {
-				$(this).next().toggle("invisible");
+				$(this).next().fadeToggle("invisible");
 			});	
 			
 		});
