@@ -13,9 +13,24 @@ after code is entered alert the user
 <html>
 <head>
     <title>Konami Code</title>
+
+    <style type="text/css">
+	    img {
+    		height: 200px;
+    		width: 250px;
+    		margin: 0 auto;
+    		display: block;
+       	}
+    	h1 {
+    		font-size: 80px;
+    		text-align: center;
+    	}
+    </style>
+
 </head>
 <body>
     <h1>Konami Code</h1>
+	<img src="/jquery/superman.png">
 
     <p>
     	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -65,48 +80,55 @@ after code is entered alert the user
     	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
-
+    
 
 	<script src="/jquery/jquery-3.1.0.js"></script>
 
     <script>
         "use strict";
 
-        var keyPress = 0;
-        var konami = [38,38,40,40,37,39,37,39,66,65,13];
+        $(document).ready(function() {
+	        var keyPress = 0;
+	        var konami = [38,38,40,40,37,39,37,39,66,65,13];
 
-        $(document).keydown(function (e) {
-        	// checks the event (keydown) and compares it completely to konami then adds 1
-        	if (e.keyCode === konami[keyPress++]) {
+	        $(document).keydown(function (event) {
+	        	// checks the event (keydown) and compares it completely to konami then adds 1
+	        	if (event.keyCode === konami[keyPress++]) {
 
-        		// checks the key pattern to var konami, if true then runs alert and sets var keyPress back to 0
-        		if (keyPress === konami.length) {
-        			// alert('You have 30 more lives!!\nWhat will you do with them all?!?!')
-        			
-        			// background and lettering
-        			$("body").css("color", "white");
-        			$("body").css("background-image", "url('/jquery/konami.jpg')");
-        			$("body").css("background-repeat", "no-repeat");
-					$("body").css("background-size", "cover");
+	        		// checks the key pattern to var konami, if true then runs alert and sets var keyPress back to 0
+	        		if (keyPress === konami.length) {
+	        			// alert('You have 30 more lives!!\nWhat will you do with them all?!?!')
+	        			
+	        			// background and lettering
+	        			$("body").css("color", "MediumBlue");
+	        			$("body").css("background-image", "url('/jquery/konami.jpg')");
+	        			// $("body").css("background-image", "url('/jquery/konami2.jpg')");
 
-        			keyPress = 0
-        			return false;
+	        			$("body").css("background-repeat", "no-repeat");
+						$("body").css("background-size", "cover");
 
-        		}
-        	// if entered wrong then sets keypress back to 0
-        	} else {
-        		n = 0;
-        	}
-        });
-		
+						// sound
+						var superSound = new Audio("/jquery/konami.mp3")
+						superSound.play()				
 
+						// superman image
 
-	
+	        			keyPress = 0
+	        			return false;
 
-
-        // $(document).keyup(function(event){
-        //     console.log(event.keyCode);
-        // });
+	        		}
+	        	// if entered wrong then sets keypress back to 0
+	        	} else {
+	        		n = 0;
+	        	}
+	        });
+		});
     </script>
 </body>
 </html>
+
+
+
+
+
+
