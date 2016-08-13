@@ -1,10 +1,21 @@
 img {
-	height: 200px;
-	width: 250px;
 	margin: 0 auto;
 	display: block;
 }
 h1 {
 	font-size: 80px;
 	text-align: center;
+}
+
+@ keyframe superman {
+
+}
+
+#superman {
+	height: 200px;
+	width: 250px;
+
+	animation-name:	superman;
+	animation-duration: 10s;
+	animation-iteration-count: 3;
 }
