@@ -27,7 +27,7 @@ Needed from Liz--
 html,
 body {
    height: 100%;
-   background: url("/img/cupcakes.jpg");
+   background: url("/adlister/cupcakes.jpg");
    background-size: cover;
    padding-top: 50px;
 }

@@ -31,6 +31,6 @@ h1 {
 }
 
 body {
-	background-image: url("/google_maps/world.jpg");
+	background-image: url("../google_maps/world.jpg");
 	background-size: cover;
 }

@@ -43,7 +43,7 @@
 <!-- Banner
 ================================================== -->
     <div class="contianer" id="banner">
-        <img src="/img/greenway.jpg" alt="Image" id="self">
+        <img src="/personal_website/greenway.jpg" alt="Image" id="self">
     </div>
 
 
@@ -55,21 +55,21 @@
       
       <div class="col-lg-4">
         <a href="/personal_website/resume.php" target="_blank">
-          <img class="img-round" src="/img/resume.jpg" width="140" height="140">
+          <img class="img-round" src="/personal_website/resume.jpg" width="140" height="140">
         </a>
         <h2>RESUME</h2>
       </div><!-- /.col-lg-4 -->
       
       <div class="col-lg-4">
         <a href="/personal_website/portfolio.php" target="_blank">
-          <img class="img-round" src="/img/about_me.jpg" width="140" height="140">
+          <img class="img-round" src="/personal_website/about_me.jpg" width="140" height="140">
         </a>
         <h2>PORTFOLIO</h2>
       </div><!-- /.col-lg-4 -->
       
       <div class="col-lg-4">
         <a href="/personal_website/personal_contact.php" target="_blank">
-          <img class="img-round" src="/img/vintage_phone.jpg" width="140" height="140">
+          <img class="img-round" src="/personal_website/vintage_phone.jpg" width="140" height="140">
         </a>
         <h2>CONTACT</h2>
       </div><!-- /.col-lg-4 -->
