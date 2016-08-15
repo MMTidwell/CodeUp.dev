@@ -7,15 +7,22 @@ h1 {
 	text-align: center;
 }
 
-@ keyframe superman {
-
+@ -webkit-keyframe superman {
+	from { -webkit-transform: rotate(0deg); }
+	70% { -webkit-transform: rotate(9.7deg); }
+	to { -webkit-transform: rotate(0deg); }
 }
 
 #superman {
 	height: 200px;
 	width: 250px;
+	/*position: absolute;*/
 
 	animation-name:	superman;
 	animation-duration: 10s;
 	animation-iteration-count: 3;
+
+	-webkit-transform-origin:0% 60%;
+  	-webkit-animation:superman 3.9s ease-in-out infinite alternate;
+
 }

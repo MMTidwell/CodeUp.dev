@@ -109,9 +109,29 @@
 
 			addDDs.addClass("invisible");
 
+			// $('#show-important').click(function(event) {
+			// 	event.preventDefault();
+			// 	$("dd").fadeToggle("invisible");
+			// });
+
+			// // Create jQuery code that makes the first li element in each ul have font-weight: bold.
+			// $("ul").each(function(index, element) {
+			// 	$(this).children().first().css("font-weight", "bold");	
+			// });
+
+			// // Create jQuery code that adds the invisible class on the parent ul of any li that is clicked.
+			// $('li').click(function(event) {
+			// 	$(this).parent().first().hide("invisible");
+			// });			
+
+			// // .next() pulls siblings since h3 does not have a child element
+			// $('h3').click(function(event) {
+			// 	$(this).next().fadeToggle("invisible");
+			// });	
+
 			$('#show-important').click(function(event) {
 				event.preventDefault();
-				$("dd").fadeToggle("invisible");
+				$("dd").slideToggle("invisible");
 			});
 
 			// Create jQuery code that makes the first li element in each ul have font-weight: bold.
@@ -126,8 +146,9 @@
 
 			// .next() pulls siblings since h3 does not have a child element
 			$('h3').click(function(event) {
-				$(this).next().fadeToggle("invisible");
+				$(this).next().slideToggle("invisible");
 			});	
+
 			
 		});
 	</script>
