@@ -1,51 +1,96 @@
-<!-- 
-Download and save ajax-store.html to your codeup.dev public directory.
-
-Create a data directory under public and download inventory.json to that folder.
-
-Your online tool store should load data from the JSON file using a get request and append the data to the table. You will need to use either $.ajax() or $.get(), and a .done() callback.
-
-Add some new entries to inventory.json and see how the data on the page gets updated.
-
-Add a "Refresh" button that will load inventory.json for you without having to refresh the entire page.
-
-Add Twitter Bootstrap to your online store with some custom CSS to make the style your own. 
--->
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Online Store</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Ajax Store</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
+    <style>
+
+        table {
+            border: 2px solid black;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>My Tool Store</h1>
 
-<h1>My Tool Store</h1>
+        <table id="products">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Categories</th>
+                </tr>
+            </thead>
+            <tbody id="insertProducts"></tbody>
+        </table>
+        <br>
+        <button id="refresh">Refresh!</button>
+    </div>
 
-<table id="products">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
-        </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-<script>
-(function() {
-    "use strict";
-    // TODO: Create an ajax GET request for /data/inventory.json
+    <script>
+    (function() {
+        "use strict";
+        $("#refresh").click(function(event){
+            // TODO: Create an ajax GET request for /data/inventory.json
+            $.ajax("/jquery/inventory.json").done(function(inventory){
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-})();
-</script>
+            // TODO: Take the data from inventory.json and append it to the products table
+            //       HINT: Your data should come back as a JSON object; use console.log() to inspect its contents and fields
+            //       HINT: You will want to target #insertProducts for your new HTML elements
+                var content = "<tr>";
+                inventory.forEach(function(tool, index) {
+                    content += "<td>" + tool.title + "</td>";
+                    content += "<td>" + tool.quantity + "</td>";
+                    content += "<td>" + tool.price + "</td>";
+                    content += "<td>" + tool.categories.join(", ") + "</td>";
+                    content += "</tr>";
+                });
+                $("#insertProducts").html(content);
+            }).fail(function(){
+                alert("Nope, nope and more nope!")
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
+
+<!-- 
+Add Twitter Bootstrap to your online store with some custom CSS to make the style your own. 
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
