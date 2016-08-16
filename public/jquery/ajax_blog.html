@@ -1,11 +1,47 @@
-<!-- 
-At minimum, your ajax blog will need an empty <div> with id="posts".
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-Add your own Bootstrap theme to this file as well. Feel free to use the same one as your store or choose a different one.
+        <title>Ajax Blog</title>
 
-Download blog.json to your data directory from before.
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
+    </head>
 
-Use ajax to load the contents of blog.json and add the data from it to your #posts div.
+    <body>
 
-Add additional entries to blog.json and make sure your changes are reflected on the page.
- -->
+    <div class="container">
+   		<div id="posts"></div>
+	</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    <!-- AJAX and JS
+    ================================================== -->
+    <script>
+    	$.ajax("/jquery/ajax_blog.json").done(function(data){
+    		var info = ""
+    		data.forEach(function(blog, index){
+    			info += "<h3>" + blog.title + "</h3>";
+    			info += "<p>" + blog.content + "</p>";
+    			info += "<p>" + blog.categories + "</p>";
+    			info += "<p>" + blog.date + "</p>";
+    		});
+    		$("#posts").html(info);
+    	}).fail(function(){
+    		alert("Blog did not work")
+    	});
+    </script>
+
+    </body>
+</html>
+
+
