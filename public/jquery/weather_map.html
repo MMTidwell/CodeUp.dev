@@ -26,29 +26,35 @@
     	<!-- Current weather conditions for SA -->
     	<div class="container" id="forecast">
     		<h1 class="text-center">Todays Forecast</h1>
-    		<h3><img id="icon"></h3>
-    		<h3>Temp: <span id="temp-min"></span><span id="temp-max"></span></h3>
+    		<h3><span id="cityName"></span></h3>
+    		<h3><span id="date"></span></h3>
+    		<img id="icon">
+    		<h3>Temp: <span id="temp"></span></h3>
     		<h3>Description: <span id="description"></span></h3>
     		<h3>Humidity: <span id="humidity"></span></h3>
     		<h3>Wind: <span id="wind"></span></h3>
     		<h3>Pressure: <span id="pressure"></span></h3>
+    		<br>
+    		<br>
+    		<div id="next_day"></div>
 		</div>
     	
 
     	<!-- Show a 3 day forecast for SA with boxes and icons -->
+    	
+		
 
 
 		<!-- Input boxes for lon and lat with submit button -->
 		<!-- Connect button to take input and feed it to API request -->
-    	<div class="container" id="input-boxes">
+    	<div id="input-boxes">
 	    	<input>Latitude
 	    	<input>Longitude
 	    	<button>Submit</button>
    		</div>
 
    		<!-- Create a map below 3 day forecast -->
-   		<div class="container us_map">
-   		</div>
+   		<div class="container us_map"></div>
 
    		<!-- Allow user to drop pin, gather cords, feed into OpenWeather and update -->
    		<!-- Git rid of input boxes at this point -->
