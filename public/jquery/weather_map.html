@@ -1,0 +1,69 @@
+<!-- 
+- ffef12efaed7d08d451bf3c9384cff70
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+        <title>Weather Maps!</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="../jquery/weather_map.css">
+    </head>
+
+     <!-- Body
+    ================================================== -->
+    <body>
+    	<!-- Current weather conditions for SA -->
+    	<div class="container" id="forecast">
+    		<h1 class="text-center">Todays Forecast</h1>
+    		<h3><img id="icon"></h3>
+    		<h3>Temp: <span id="temp-min"></span><span id="temp-max"></span></h3>
+    		<h3>Description: <span id="description"></span></h3>
+    		<h3>Humidity: <span id="humidity"></span></h3>
+    		<h3>Wind: <span id="wind"></span></h3>
+    		<h3>Pressure: <span id="pressure"></span></h3>
+		</div>
+    	
+
+    	<!-- Show a 3 day forecast for SA with boxes and icons -->
+
+
+		<!-- Input boxes for lon and lat with submit button -->
+		<!-- Connect button to take input and feed it to API request -->
+    	<div class="container" id="input-boxes">
+	    	<input>Latitude
+	    	<input>Longitude
+	    	<button>Submit</button>
+   		</div>
+
+   		<!-- Create a map below 3 day forecast -->
+   		<div class="container us_map">
+   		</div>
+
+   		<!-- Allow user to drop pin, gather cords, feed into OpenWeather and update -->
+   		<!-- Git rid of input boxes at this point -->
+   		<!-- Add css and bootstrap to make pretty -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    <!-- AJAX and JS
+    ================================================== -->
+    <script src="../jquery/weather_map.js"></script>
+
+    </body>
+</html>
