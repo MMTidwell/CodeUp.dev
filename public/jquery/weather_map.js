@@ -17,19 +17,19 @@
 
 	// takes wind degree and change it to direction
 	function windDirection(deg){
-		if (inRange(348.75, 11.25, deg)){
+		if (inRange(348.75, 33.75, deg)){
 			return "N"
-		} if (inRange(33.75, 56.25, deg)){
+		} if (inRange(33.75, 78.75, deg)){
 			return "NE"
-		} if (inRange(78.75, 101.25, deg)){
+		} if (inRange(78.75, 123.75, deg)){
 			return "E"
-		} if (inRange(123.75, 146.25, deg)){
+		} if (inRange(123.75, 168.75, deg)){
 			return "SE"
-		} if (inRange(168.75, 191.25, deg)){
+		} if (inRange(168.75, 213.75, deg)){
 			return "S"
-		} if (inRange(213.75, 236.25, deg)){
+		} if (inRange(213.75, 258.75, deg)){
 			return "SW"
-		} if (inRange(258.75, 281.25, deg)){
+		} if (inRange(258.75, 303.75, deg)){
 			return "W"
 		} if (inRange(303.75, 326.25, deg)){
 			return "NW"
@@ -44,7 +44,7 @@
 		var description = weatherData.weather[0].description;
 		var humidity = weatherData.main.humidity + "%";
 		var windDir = windDirection(weatherData.wind.deg);
-		var wind = weatherData.wind.speed + " MPH";
+		var wind = weatherData.wind.speed + " mph";
 		var pressure = Math.round(weatherData.main.pressure * 0.02952998751) + " IN";
 
 		// assigns info to area in HTML
