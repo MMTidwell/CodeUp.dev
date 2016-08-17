@@ -1,12 +1,17 @@
 "use strict";
 
-$(document).ready(function(){ 
+// $(document).ready(function(){ 
 // =======================JS======================================
 	// =================Current Weather===========================
 	// my api for openweathermap.org
 	const myAPIKey = "ffef12efaed7d08d451bf3c9384cff70";
 
 	var days = 6;
+
+	var markerLat = 29.4213001
+	var markerLng = -98.499774
+
+	var infowindow;
 
 	// checks the value and return boolean for windDirection(deg)
 	function inRange(min, max, value){
@@ -46,6 +51,8 @@ $(document).ready(function(){
 		var dt = weatherData.dt;
 		var day = new Date(dt * 1000);
 		var date = day.toDateString();
+		// console.log(day)
+
 		// icon
 		var icon = weatherData.weather[0].icon;
 		// temp 
@@ -70,90 +77,143 @@ $(document).ready(function(){
 		$("#pressure").text(pressure);
 	}
 
+	function setWindow(weatherData){
+		console.log(weatherData)
+		var city = weatherData.name;
+		var icon = weatherData.weather[0].icon;
+		var currentTemp = Math.round(weatherData.main.temp) + "º F";
+		var temp = Math.round(weatherData.main.temp_min) + "º F / " + Math.round(weatherData.main.temp_max) + "º F";
+		
+		var div = "<div>"
+		div += "<div>" + date + "</div>";
+		div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
+		div += "<div>" + temp + "</div>";
+		div += "</div>"
+		infowindow.setContent(div)
+	}
 
 	// =================Current Map==========================
+	// allows pin to move around 
+
+
 	// builds map
 	function initMap(){
-		// center of USA
-		var latLng = {
-			lat: 37,
-			lng: -95
-		};
+		// Drops in SA
+		// var latLng = {lat: 29, lng: -98};
+
 		// places map, sets zoom and centers
 		var map = new google.maps.Map(document.getElementById("map_area"), {
 			zoom: 4,
-			center: latLng
+			center: {
+				lat: markerLat,
+				lng: markerLng
+			}
 		});
+
 		// sets marker on map
 		var marker = new google.maps.Marker({
-			position: latLng,
+			// position: latLng,
+			position: {
+				lat: markerLat,
+				lng: markerLng
+			},
 			map: map,
-
+			// allows pin to move
 			draggable: true,
 			animation: google.maps.Animation.DROP
 		});
-		marker.addListener('click', toggleBounce);
+
+		// adds window box
+		infowindow = new google.maps.InfoWindow({
+			content: ""
+		})
+		infowindow.open(map, marker);
+
+		// allows user to move pin (seems to work without it...)
+		google.maps.event.addListener(marker, "mouseup", function(event){
+			// setting empty array and getting lat and lng
+			var markerPosition = []
+			markerPosition[0] = this.position.lat();
+			markerPosition[1] = this.position.lng();
+
+			// assigning lat and lng in input boxes above map
+			$("#lat").val(markerPosition[0]);
+			$("#lng").val(markerPosition[1]);
+		});
+
+		google.maps.event.addListener(marker, "mouseup", function(){
+			markerLat = $("#lat").val();
+			markerLng = $("#lng").val();
+			$('#next_day').html('');
+			forecast();
+			nextDay();
+		});
 	}
 
-	function toggleBounce(){
-		if (marker.getAnimation() !== null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
-		}
-	}
-
-	var map = new google.maps.Map(document.getElementById("map_area"), initMap());
-	
-
+	// places map in browser
+	var map = new google.maps.Map(document.getElementById("map_area"), initMap);
 
 
 // =======================AJAX=====================================
-	// gets data object from openweathermap.org and sends it to weatherInfo function
-	$.get("http://api.openweathermap.org/data/2.5/weather", {
-		APPID: myAPIKey,
-		q: "San Antonio, TX",
-		// sets the temp to F
-		units: "imperial" 
-	}).done(function(weatherData){
-		weatherInfo(weatherData)
-		console.log(weatherData)
-	}).fail(function(){
-		alert("Error loading weather")
-	});
-
-	// =================Forecast Weather===========================
-	$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-		APPID: myAPIKey,
-		q: "San Antonio, TX",
-		// sets the temp to F
-		units: "imperial",
-		cnt: days
+	function forecast(){
+		// gets data object from openweathermap.org and sends it to weatherInfo function
+		$.get("http://api.openweathermap.org/data/2.5/weather", {
+			APPID: myAPIKey,
+			// q: "San Antonio, TX",
+			lat: markerLat,
+			lon: markerLng,
+			// sets the temp to F
+			units: "imperial" 
 		}).done(function(weatherData){
-			// console.log(weatherData);
-			weatherData.list.slice(1).forEach(function(days, index){
-				var div = "<div id='rows'>";
-				var dt = days.dt;
-				var day = new Date(dt * 1000);
-				var date = day.toDateString();
-
-				var icon = days.weather[0].icon;
-				var temp = Math.round(days.temp.min) + "ºF / " + Math.round(days.temp.max) + "ºF";
-
-				div += "<div>"
-				div += "<div>" + date + "</div>";
-				div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
-				div += "<div>" + temp + "</div>";
-				div += "</div>"
-
-				$("#next_day").append(div);
-			});
-			
+			weatherInfo(weatherData)
+			setWindow(weatherData)
+			// console.log(weatherData)
 		}).fail(function(){
 			alert("Error loading weather")
 		});
-	});
+	}
 
+	// =================Forecast Weather===========================
+	function nextDay(){
+		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+			APPID: myAPIKey,
+			// q: "San Antonio, TX",
+			lat: markerLat,
+			lon: markerLng,
+			// sets the temp to F
+			units: "imperial",
+			cnt: days
+			}).done(function(weatherData){
+				console.log(weatherData);
+				weatherData.list.slice(1).forEach(function(days, index){
+					var div = "<div id='rows'>";
+					var dt = days.dt;
+					var day = new Date(dt * 1000);
+					var date = day.toDateString();
+
+					var icon = days.weather[0].icon;
+					var temp = Math.round(days.temp.min) + "ºF / " + Math.round(days.temp.max) + "ºF";
+
+					div += "<div>"
+					div += "<div>" + date + "</div>";
+					div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
+					div += "<div>" + temp + "</div>";
+					div += "</div>"
+
+					$("#next_day").append(div);
+				});
+				
+			}).fail(function(){
+				alert("Error loading weather")
+			});
+		};
+
+console.log('running on page load')
+forecast();
+nextDay();
+
+initMap();
+// setWindow();
 
 // });
 
