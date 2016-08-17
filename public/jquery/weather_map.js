@@ -1,6 +1,6 @@
 "use strict";
 
-// (function(){ 
+$(document).ready(function(){ 
 // =======================JS======================================
 	// =================Current Weather===========================
 	// my api for openweathermap.org
@@ -72,14 +72,40 @@
 
 
 	// =================Current Map==========================
-	var firstMap = {
-		zoom: 4,
-		center: {
-			lat: 39,
-			lng: -98
+	// builds map
+	function initMap(){
+		// center of USA
+		var latLng = {
+			lat: 37,
+			lng: -95
+		};
+		// places map, sets zoom and centers
+		var map = new google.maps.Map(document.getElementById("map_area"), {
+			zoom: 4,
+			center: latLng
+		});
+		// sets marker on map
+		var marker = new google.maps.Marker({
+			position: latLng,
+			map: map,
+
+			draggable: true,
+			animation: google.maps.Animation.DROP
+		});
+		marker.addListener('click', toggleBounce);
+	}
+
+	function toggleBounce(){
+		if (marker.getAnimation() !== null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
 		}
 	}
-	var map = new google.maps.Map(document.getElementById("map_area"), firstMap);
+
+	var map = new google.maps.Map(document.getElementById("map_area"), initMap());
+	
+
 
 
 // =======================AJAX=====================================
@@ -103,31 +129,31 @@
 		// sets the temp to F
 		units: "imperial",
 		cnt: days
-	}).done(function(weatherData){
-		// console.log(weatherData);
-		weatherData.list.slice(1).forEach(function(days, index){
-			var div = "<div id='rows'>";
-			var dt = days.dt;
-			var day = new Date(dt * 1000);
-			var date = day.toDateString();
+		}).done(function(weatherData){
+			// console.log(weatherData);
+			weatherData.list.slice(1).forEach(function(days, index){
+				var div = "<div id='rows'>";
+				var dt = days.dt;
+				var day = new Date(dt * 1000);
+				var date = day.toDateString();
 
-			var icon = days.weather[0].icon;
-			var temp = Math.round(days.temp.min) + "ºF / " + Math.round(days.temp.max) + "ºF";
+				var icon = days.weather[0].icon;
+				var temp = Math.round(days.temp.min) + "ºF / " + Math.round(days.temp.max) + "ºF";
 
-			div += "<div>"
-			div += "<div>" + date + "</div>";
-			div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
-			div += "<div>" + temp + "</div>";
-			div += "</div>"
+				div += "<div>"
+				div += "<div>" + date + "</div>";
+				div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
+				div += "<div>" + temp + "</div>";
+				div += "</div>"
 
-			$("#next_day").append(div);
+				$("#next_day").append(div);
+			});
+			
+		}).fail(function(){
+			alert("Error loading weather")
 		});
-		
-	}).fail(function(){
-		alert("Error loading weather")
 	});
 
-		
 
-// })();
+// });
 
