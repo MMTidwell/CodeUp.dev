@@ -13,11 +13,7 @@ $(document).ready(function(){
 	// ================= Wind Direction ===========================
 	// checks the value and return boolean for windDirection(deg)
 	function inRange(min, max, value){
-		if (value >= min && value <= max){
-			return true
-		} else {
-			return false
-		}
+		return (value >= min && value <= max)
 	}
 
 	// takes wind degree and change it to direction
@@ -60,7 +56,7 @@ $(document).ready(function(){
 		var humidity = weatherData.main.humidity + "%";
 		var windDir = windDirection(weatherData.wind.deg);
 		var wind = weatherData.wind.speed + " mph";
-		var pressure = Math.round(weatherData.main.pressure * 0.02952998751) + " IN";
+		var pressure = Math.round(weatherData.main.pressure * 0.02952998751) + " inHG";
 
 		// assigns info to area in HTML
 		$("#cityName").text(city);
