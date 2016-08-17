@@ -46,9 +46,12 @@
 		var dt = weatherData.dt;
 		var day = new Date(dt * 1000);
 		var date = day.toDateString();
-		// all other 
+		// icon
 		var icon = weatherData.weather[0].icon;
-		var temp = Math.round(weatherData.main.temp_min) + "ºF / " + Math.round(weatherData.main.temp_max) + "ºF";
+		// temp 
+		var currentTemp = Math.round(weatherData.main.temp) + "º F";
+		var temp = Math.round(weatherData.main.temp_min) + "º F / " + Math.round(weatherData.main.temp_max) + "º F";
+		// all other
 		var description = weatherData.weather[0].description;
 		var humidity = weatherData.main.humidity + "%";
 		var windDir = windDirection(weatherData.wind.deg);
@@ -59,7 +62,8 @@
 		$("#cityName").text(city);
 		$("#date").text(date)
 		$("#icon").attr("src", ("http://openweathermap.org/img/w/" + icon + ".png"));
-		$("#temp-min").text(temp);
+		$("#temp").text(currentTemp);
+		$("#daily-temp").text(temp);
 		$("#description").text(description);
 		$("#humidity").text(humidity);
 		$("#wind").text(wind + " " + windDir);
@@ -76,7 +80,7 @@
 		units: "imperial" 
 	}).done(function(weatherData){
 		weatherInfo(weatherData)
-		// console.log(weatherData)
+		console.log(weatherData)
 	}).fail(function(){
 		alert("Error loading weather")
 	});
@@ -89,7 +93,7 @@
 		units: "imperial",
 		cnt: days
 	}).done(function(weatherData){
-		console.log(weatherData);
+		// console.log(weatherData);
 		weatherData.list.slice(1).forEach(function(days, index){
 			var div = "<div id='rows'>";
 			var dt = days.dt;
