@@ -1,16 +1,16 @@
 "use strict";
 
 $(document).ready(function(){ 
-// =======================JS======================================
-	// =================Current Weather===========================
+	// ================= Variables ===========================
 	// my api for openweathermap.org
 	const myAPIKey = "ffef12efaed7d08d451bf3c9384cff70";
 
 	var days = 6;
-	var markerLat = 29.4213001
-	var markerLng = -98.499774
+	var markerLat = 39.8282
+	var markerLng = -98.5795
 	var infowindow;
 
+	// ================= Wind Direction ===========================
 	// checks the value and return boolean for windDirection(deg)
 	function inRange(min, max, value){
 		if (value >= min && value <= max){
@@ -41,6 +41,7 @@ $(document).ready(function(){
 		}
 	}
 
+	// ================ Current Weather ==========================
 	// gathers info from openweathermap.org and places it in HTML
 	function weatherInfo(weatherData){
 		//	name =	get().location in object.var called
@@ -73,22 +74,18 @@ $(document).ready(function(){
 		$("#pressure").text(pressure);
 	}
 
+	// ================= Pop Up Window ========================
 	function setWindow(weatherData){
 		var city = weatherData.name;
 		var icon = weatherData.weather[0].icon;
 		var currentTemp = Math.round(weatherData.main.temp) + "º F";
 		var temp = Math.round(weatherData.main.temp_min) + "º F / " + Math.round(weatherData.main.temp_max) + "º F";
 		
-		var div = "<div>"
-		div += "<div>" + city + "</div>";
-		div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
-		div += "<div>" + currentTemp + "</div>";
-		div += "<div>" + temp + "</div>";
-		div += "</div>"
+		var div = "<div>" + city + "</div>" +"<img src='http://openweathermap.org/img/w/" + icon + ".png'>" + "<div>" + currentTemp + "</div>" + "<div>" + temp + "</div>" + "</div>"
 		infowindow.setContent(div)
 	}
 
-	// =================Current Map==========================
+	// ==================== Map ============================
 	// builds map
 	function initMap(){
 		// places map, sets zoom and centers
@@ -143,7 +140,7 @@ $(document).ready(function(){
 	var map = new google.maps.Map(document.getElementById("map_area"), initMap);
 
 
-// =======================AJAX=====================================
+// ================ AJAX Current Weather =========================
 	function forecast(){
 		// gets data object from openweathermap.org and sends it to weatherInfo function
 		$.get("http://api.openweathermap.org/data/2.5/weather", {
@@ -161,7 +158,7 @@ $(document).ready(function(){
 		});
 	}
 
-	// =================Forecast Weather===========================
+	// ============= AJAX Forecast Weather ======================
 	function nextDay(){
 		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
 			APPID: myAPIKey,
@@ -181,11 +178,7 @@ $(document).ready(function(){
 					var icon = days.weather[0].icon;
 					var temp = Math.round(days.temp.min) + "ºF / " + Math.round(days.temp.max) + "ºF";
 
-					div += "<div>"
-					div += "<div>" + date + "</div>";
-					div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
-					div += "<div>" + temp + "</div>";
-					div += "</div>"
+					div += "<div>" + date + "</div>" + "<img src='http://openweathermap.org/img/w/" + icon + ".png'>" + "<div>" + temp + "</div>" + "</div>"
 
 					$("#next_day").append(div);
 				});
@@ -195,6 +188,7 @@ $(document).ready(function(){
 			});
 		};
 
+// ================= Run Before Page Load ===========================
 console.log('running on page load')
 forecast();
 nextDay();
