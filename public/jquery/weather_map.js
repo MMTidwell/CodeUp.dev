@@ -1,16 +1,14 @@
 "use strict";
 
-// $(document).ready(function(){ 
+$(document).ready(function(){ 
 // =======================JS======================================
 	// =================Current Weather===========================
 	// my api for openweathermap.org
 	const myAPIKey = "ffef12efaed7d08d451bf3c9384cff70";
 
 	var days = 6;
-
 	var markerLat = 29.4213001
 	var markerLng = -98.499774
-
 	var infowindow;
 
 	// checks the value and return boolean for windDirection(deg)
@@ -51,8 +49,6 @@
 		var dt = weatherData.dt;
 		var day = new Date(dt * 1000);
 		var date = day.toDateString();
-		// console.log(day)
-
 		// icon
 		var icon = weatherData.weather[0].icon;
 		// temp 
@@ -78,29 +74,23 @@
 	}
 
 	function setWindow(weatherData){
-		console.log(weatherData)
 		var city = weatherData.name;
 		var icon = weatherData.weather[0].icon;
 		var currentTemp = Math.round(weatherData.main.temp) + "º F";
 		var temp = Math.round(weatherData.main.temp_min) + "º F / " + Math.round(weatherData.main.temp_max) + "º F";
 		
 		var div = "<div>"
-		div += "<div>" + date + "</div>";
+		div += "<div>" + city + "</div>";
 		div += "<img src='http://openweathermap.org/img/w/" + icon + ".png'>";
+		div += "<div>" + currentTemp + "</div>";
 		div += "<div>" + temp + "</div>";
 		div += "</div>"
 		infowindow.setContent(div)
 	}
 
 	// =================Current Map==========================
-	// allows pin to move around 
-
-
 	// builds map
 	function initMap(){
-		// Drops in SA
-		// var latLng = {lat: 29, lng: -98};
-
 		// places map, sets zoom and centers
 		var map = new google.maps.Map(document.getElementById("map_area"), {
 			zoom: 4,
@@ -112,7 +102,6 @@
 
 		// sets marker on map
 		var marker = new google.maps.Marker({
-			// position: latLng,
 			position: {
 				lat: markerLat,
 				lng: markerLng
@@ -159,7 +148,7 @@
 		// gets data object from openweathermap.org and sends it to weatherInfo function
 		$.get("http://api.openweathermap.org/data/2.5/weather", {
 			APPID: myAPIKey,
-			// q: "San Antonio, TX",
+			// gets lat and lng
 			lat: markerLat,
 			lon: markerLng,
 			// sets the temp to F
@@ -167,7 +156,6 @@
 		}).done(function(weatherData){
 			weatherInfo(weatherData)
 			setWindow(weatherData)
-			// console.log(weatherData)
 		}).fail(function(){
 			alert("Error loading weather")
 		});
@@ -177,14 +165,13 @@
 	function nextDay(){
 		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
 			APPID: myAPIKey,
-			// q: "San Antonio, TX",
+			// gets lat and lng
 			lat: markerLat,
 			lon: markerLng,
 			// sets the temp to F
 			units: "imperial",
 			cnt: days
 			}).done(function(weatherData){
-				console.log(weatherData);
 				weatherData.list.slice(1).forEach(function(days, index){
 					var div = "<div id='rows'>";
 					var dt = days.dt;
@@ -211,9 +198,7 @@
 console.log('running on page load')
 forecast();
 nextDay();
-
 initMap();
-// setWindow();
 
-// });
+});
 
