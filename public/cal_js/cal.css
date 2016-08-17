@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-	background-image: url("/cal_js/blue_buttons.jpg");
+	background-image: url("../cal_js/blue_buttons.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }

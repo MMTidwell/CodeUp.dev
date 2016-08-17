@@ -71,6 +71,17 @@
 	}
 
 
+	// =================Current Map==========================
+	var firstMap = {
+		zoom: 4,
+		center: {
+			lat: 39,
+			lng: -98
+		}
+	}
+	var map = new google.maps.Map(document.getElementById("map_area"), firstMap);
+
+
 // =======================AJAX=====================================
 	// gets data object from openweathermap.org and sends it to weatherInfo function
 	$.get("http://api.openweathermap.org/data/2.5/weather", {

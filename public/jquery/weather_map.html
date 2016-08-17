@@ -1,5 +1,6 @@
 <!-- 
-- ffef12efaed7d08d451bf3c9384cff70
+weather api - ffef12efaed7d08d451bf3c9384cff70
+google api - AIzaSyDsEtu_2A8JW_wlAQqynIaDexSMZk6pggk
  -->
 
 
@@ -41,21 +42,16 @@
     		<div id="next_day"></div>
 		</div>
     	
-
-    	
-		
-
-
 		<!-- Input boxes for lon and lat with submit button -->
 		<!-- Connect button to take input and feed it to API request -->
     	<div id="input-boxes">
-	    	<input>Latitude
-	    	<input>Longitude
+	    	<input placeholder="Latitude">
+	    	<input placeholder="Longitude">
 	    	<button>Submit</button>
    		</div>
 
    		<!-- Create a map below 3 day forecast -->
-   		<div class="container us_map"></div>
+   		<div id="map_area"></div>
 
    		<!-- Allow user to drop pin, gather cords, feed into OpenWeather and update -->
    		<!-- Git rid of input boxes at this point -->
@@ -70,7 +66,11 @@
 
     <!-- AJAX and JS
     ================================================== -->
+    <!-- script tag holds google maps and API key -->
+ 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsEtu_2A8JW_wlAQqynIaDexSMZk6pggk"></script>
+
     <script src="../jquery/weather_map.js"></script>
+    
 
     </body>
 </html>
