@@ -10,7 +10,7 @@
     <title>Ajax Store</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap-3.3.6-dist/css/bootstrap.css">
     <style>
 
         table {
@@ -54,7 +54,7 @@
         "use strict";
         $("#refresh").click(function(event){
             // TODO: Create an ajax GET request for /data/inventory.json
-            $.ajax("/jquery/inventory.json").done(function(inventory){
+            $.ajax("jquery/inventory.json").done(function(inventory){
 
             // TODO: Take the data from inventory.json and append it to the products table
             //       HINT: Your data should come back as a JSON object; use console.log() to inspect its contents and fields
