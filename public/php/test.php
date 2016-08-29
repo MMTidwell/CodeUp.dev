@@ -1,5 +1,5 @@
 <!-- opening php tag has to be at the beginning of the php code -->
-<!-- files that ONLY contain php do not have to have opening and closing php tags -->
+<!-- files that ONLY contain php do not have to have a closing php tags -->
 <?php 
 
 echo 'hello from an external file' . PHP_EOL;
@@ -11,9 +11,9 @@ $numbers = [1, 2, 3, 4, 5];
 $contact = array('first_name' => 'Mittsy', 'last_name' => 'Tidwell', 'email' => 'mtidwell506@gmail.com', 'phone' => '817-301-6167');
 
 // multidimensional array
-$test = array('person1' => array('first' => "Tim", "last" => "Kessler"),
-			'person2' => array('first' => "Brian", "last" => "Yang"),
-			'person3' => array('first' => "Russ", 'last' => "Tidwell"));
+// $test = array('person1' => array('first' => "Tim", "last" => "Kessler"),
+// 			'person2' => array('first' => "Brian", "last" => "Yang"),
+// 			'person3' => array('first' => "Russ", 'last' => "Tidwell"));
 
 $number = 10;
 $item1 = 5;
@@ -26,7 +26,7 @@ print_r($numbers);
 
 echo $numbers[3] . PHP_EOL;
 
-print_r($test);
+// print_r($test);
 
 // basic math operators
 echo -20 + -22 . PHP_EOL;
@@ -70,9 +70,20 @@ echo(PHP_EOL);
 var_dump($x > $y || !($y < $z));
 
 
+// assigning associate array key => value pairs
+$person1 = [
+	'name' => 'Mitt',
+	'age' => 32,
+	'language' => ['CSS', 'JS', 'HTML', 'PHP', 'MySQL'],
+];
 
+$person2 = [
+	'name'=> 'Tim',
+	'age' => 29,
+	'language' => ["Java", 'Database'],
+];
 
-
+$newArray = [$person1, $person2];
 
 // php closing tag
 ?>
