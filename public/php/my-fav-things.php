@@ -1,12 +1,16 @@
 <!-- 
 √ - create an array of fav things (at least 5 things)
 √ - loop through each item inside HTML
-	√ - use HTML table for display
-	√ - use CSS to add a light gray background on every other row
+    √ - use HTML table for display
+    √ - use CSS to add a light gray background on every other row
 -->
 
 <?php 
-	$myFavThings = array("Tim", "Marley", "Uni", "Car", "Fashion", "Code");
+    function pageController() {
+        $data = ['myFavThings' => ["Tim", "Marley", "Uni", "Car", "Fashion", "Code"]];   
+        return $data;
+    }
+    extract(pageController());
 ?>
 
 <!DOCTYPE html>
@@ -23,19 +27,19 @@
         <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
 
         <style>
-        	table, th, td {
-				border: 1px solid black;
-				text-align: center;
-				padding: 2%;
-				width: 40%;
-				margin: 0 auto;
+            table, th, td {
+                border: 1px solid black;
+                text-align: center;
+                padding: 2%;
+                width: 40%;
+                margin: 0 auto;
                 font-size: 1.5em;
-				margin-top: 5%;
-        	}
+                margin-top: 5%;
+            }
 
-        	tbody tr:nth-child(even) {
-			   background-color: #ccc;
-			}
+            tbody tr:nth-child(even) {
+               background-color: #ccc;
+            }
 
             td {
                 font-weight: lighter;
@@ -44,14 +48,14 @@
     </head>
 
     <body>
-		<div class="container">
-			<table>
-				<th>My fav things!</th>
-					<?php foreach ($myFavThings as $things) { ?>
-						<tr><td><?php echo $things . PHP_EOL; ?></td></tr>
-					<?php } ?>
-			</table>
-		</div>
+        <div class="container">
+            <table>
+                <th>My fav things!</th>
+                    <?php foreach ($myFavThings as $things) { ?>
+                        <tr><td><?php echo $things . PHP_EOL; ?></td></tr>
+                    <?php } ?>
+            </table>
+        </div>
    
 
 

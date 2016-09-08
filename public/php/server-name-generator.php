@@ -9,17 +9,17 @@
  -->
 
 <?php 
-	$adj = array("Grumpy", "Modern", "Testy", "Bad", "Bitter", "Itchy", "Old", "Damp", "Spicey", "Ratty");
-	$noun = array("Snail", "Ghost", "Smoke", "Sticks", "Umbrella", "Seed", "Quill", "Building", "Lace", "Giant");
+	function pageController() {
+		$adj = array("Grumpy", "Modern", "Testy", "Bad", "Bitter", "Itchy", "Old", "Damp", "Spicey", "Ratty");
+		$noun = array("Snail", "Ghost", "Smoke", "Sticks", "Umbrella", "Seed", "Quill", "Building", "Lace", "Giant");
 
-// function that returns a random element from each element
-	function randInsult($adj, $noun) {
-		// rand adj
-		echo $adj[array_rand($adj)] . PHP_EOL;
-		// rand noun
-		echo $noun[array_rand($noun)] . PHP_EOL;
+		$serverName = array();
+		$serverName['name'] = $adj[array_rand($adj)] . "-" . $noun[array_rand($noun)];
+		return $serverName;
 	}
+	extract(pageController());
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,6 @@
 				font-size: 6em;
 				border-style: inset;
 			}
-
         </style>
 
     </head>
@@ -55,9 +54,11 @@
 		<div class="container">	
 			<h3>Your server name is:</h3>		
 			<h1>
-				<?php randInsult($adj, $noun);?>
+				<?php echo $name;?>
 			</h1>
-			<h3><a type="button" onclick="location.reload()">Generate a new server name</a></h3>	
+			<h3>
+				<a type="button" onclick="location.reload()">Generate a new server name</a>
+			</h3>	
 		</div>
 
     <!-- Bootstrap core JavaScript
