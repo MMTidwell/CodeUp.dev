@@ -9,20 +9,24 @@
  -->
 
  <?php  
+	 // main function to call when pulling PHP into HTML
  	function pageController() {
+ 		// empty array used fro extract(). This will turn keys into variables
  		$data = [];
 
+ 		// uses _GET request to see if counter is set in url
  		if (isset($_GET['counter'])) {
  			$data['counter'] = $_GET['counter'];
  		} else {
  			$data['counter'] = 0;
  		}
+
+ 		// uses data array to move counter up and down
  		$data['up'] = $data['counter'] + 1;
  		$data['down'] = $data['counter'] - 1;
 
  		return $data;
  	}
-
  	extract(pageController());
  ?>
 
@@ -56,7 +60,9 @@
  
      <body>
  		<div class="container">
+ 			<!-- $counter prints the count number in the h1 element -->
  			<h1>Current Count: <?= $counter; ?></h1>
+
  			<!-- use this href style if moving from one file to another -->
  			<a class="glyphicon glyphicon-circle-arrow-up" href="/php/counter.php?counter=<?= $up; ?>"></a> 
  			<!-- use this href style if staying in the same page -->
@@ -69,7 +75,6 @@
      ================================================== -->
      <!-- Placed at the end of the document so the pages load faster -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- 
  
      <!-- AJAX and JS
      ================================================== -->
