@@ -1,30 +1,5 @@
-<!-- 
-- Both Pages
-	- 2 links
-		- Hit
-			- if hit the counter increases 
-		- Miss
-			- if missed then counter goes back to 0 and game is over
-		- Links should go to the other page (ping -> pong, vice versa)
-		- Each query string should include if it was a hit or miss and the current count of hits
-	- pageController() - holds all of our PHP
-		- access to the $_GET super-global variable and check the values stored
-		- increase the counter when hit and decrees when missed
-	- extract()
-		- change the return values of the pageController into variables
-- Extra
-	- images
-	- random gen for hit/miss
-	- use CSS and JS to randomly move the hit/miss 
- -->
+<?php 
 
-<?php  
-	function pageController() {
-// hit = counter increases and ping.php 
-// miss = reloads page, counter == 0 and goes to pong.php 
-
-	}
-	extract(pageController());
 ?>
 
 <!DOCTYPE html>
@@ -35,20 +10,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>PONG</title>
+        <title></title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
+		<style>
+			body {
+				background-color: green;
+				color: white;
+                text-align: center;
+			}
+		</style>
     </head>
-
+	
     <body>
         <div class="container">
-            <button href="" name="hit">HIT</button>
-            <button href="" name="miss">MISS</button>
-            <h1>Score: <?= $counter; ?></h1>
+            <h1>AUTHORIZED!</h1>
         </div>
-
-        
    
 
 
