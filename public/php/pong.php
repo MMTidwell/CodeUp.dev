@@ -1,30 +1,41 @@
 <!-- 
 - Both Pages
-	- 2 links
-		- Hit
-			- if hit the counter increases 
-		- Miss
-			- if missed then counter goes back to 0 and game is over
-		- Links should go to the other page (ping -> pong, vice versa)
-		- Each query string should include if it was a hit or miss and the current count of hits
-	- pageController() - holds all of our PHP
-		- access to the $_GET super-global variable and check the values stored
-		- increase the counter when hit and decrees when missed
-	- extract()
-		- change the return values of the pageController into variables
+    √ - 2 links
+       √ - Hit
+            √ - if hit the counter increases 
+        - Miss
+            - if missed then counter goes back to 0 and game is over
+        √ - Links should go to the other page (ping -> pong, vice versa)
+        - Each query string should include if it was a hit or miss and the current count of hits
+    - pageController() - holds all of our PHP
+        - access to the $_GET super-global variable and check the values stored
+        - increase the counter when hit and decrees when missed
+    - extract()
+        - change the return values of the pageController into variables
 - Extra
-	- images
-	- random gen for hit/miss
-	- use CSS and JS to randomly move the hit/miss 
+    - images
+    - random gen for hit/miss
+    - use CSS and JS to randomly move the hit/miss 
  -->
 
 <?php  
-	function pageController() {
+    function pageController() {
 // hit = counter increases and ping.php 
 // miss = reloads page, counter == 0 and goes to pong.php 
+        $counter = [];
 
-	}
-	extract(pageController());
+        if (isset($_GET['score'])) {
+            $counter['score'] = $_GET['score'];
+        } else {
+            $counter['score'] = 0;
+        }
+
+        // $score['hit'] = $score['counter'] + 1;
+        // $score['miss'] = $score['counter'] = 0;
+
+        return $counter;
+    }
+    extract(pageController());
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +54,9 @@
 
     <body>
         <div class="container">
-            <button href="" name="hit">HIT</button>
-            <button href="" name="miss">MISS</button>
-            <h1>Score: <?= $counter; ?></h1>
+            <h1>Score: <?= $score; ?></h1>
+            <a href="/php/ping.php?score=<?= $score + 1; ?>" name="hit">HIT</a>
+            <a href="/php/pong.php?score=<?= $score = 0; ?>" name="miss">MISS</a>
         </div>
 
         

@@ -1,15 +1,3 @@
-<!-- 
-- form 
-	√ - username
-	√ - password
-	√ - submits to the same page (login.php)
-	√ - php code that checks the POST username and password	
-		√ - if username == guest and password == guest > redirect to authorized.php 
-		√ - else show login failed message in login page
-√ - new file (authorized.php)
-	√ - html that says authorized
- -->
-
 <?php 
 	function pageController() {
 		$nope = [];
@@ -21,6 +9,8 @@
 		if (!empty($_POST['username']) || !empty($_POST['password'])) {
 			// checking username and password are correct
 			if ($_POST['username'] == 'g' && $_POST['password'] == 'g') {
+				// assigned session key
+				$_SESSION['logged_in_user'] = $username;
 				// sends user to this page
 				header("Location: /php/authorized.php");
 				// kills the login page and turns everything white
@@ -29,7 +19,6 @@
 			} else {
 				// runs when info is wrong
 				$nope['no'] = "OH HELL NO!";	
-				// echo = "OH HELL NO!";
 			}
 		}
 		return $nope;
@@ -64,7 +53,7 @@
 			<h1>Login Form</h1>
 			<form method="POST">
 				<p>
-					<h2><?php echo $no; ?></h2>	
+					<h2><?= $no; ?></h2>	
 					<em>Test with g for username and password.</em>
 				</p>
 				<p>
