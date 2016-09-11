@@ -1,4 +1,7 @@
-<?php 
+<?php
+	// starts the session or resumes and existing one, this must be called before trying to set any session data
+	session_start(); 
+
 	function pageController() {
 		$nope = [];
 
@@ -9,6 +12,15 @@
 		if (!empty($_POST['username']) || !empty($_POST['password'])) {
 			// checking username and password are correct
 			if ($_POST['username'] == 'g' && $_POST['password'] == 'g') {
+
+				// assigns the session key to username once logged in
+				$_SESSION['logged_in_user'] = $_POST['username'];
+
+				// checks to see if the user is alreay logged in and if isset then it will redirect them to autho page. 
+				if (isset($_SESSION['logged_in_user'])) {
+					header("Location: /php/login/authorized.php");
+				}
+
 				// sends user to this page
 				header("Location: /php/login/authorized.php");
 				// kills the login page and turns everything white

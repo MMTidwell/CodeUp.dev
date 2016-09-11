@@ -1,5 +1,12 @@
 <?php 
+    session_start();
 
+    if (! $_SESSION['logged_in_user']) {
+        $info = "You are not logged in.";
+        header("Location: /login/login.php");
+    } else {
+        $info = $_SESSION['logged_in_user'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +32,11 @@
 	
     <body>
         <div class="container">
-            <h1>YOU HAVE ENTERD A SUPER SECRET AREA!<br>GET OUT!!!!!!</h1>
+            <h1>YOU HAVE ENTERD A SUPER SECRET AREA!<br><br><br>GET OUT<br>OR DIE!!!!!!</h1>
+
+            <h3>Username: <?= htmlspecialchars(strip_tags($info)); ?></h3>
+
+            <a href="/php/login/logout.php"><button>Log Out</button></a>
         </div>
    
 
