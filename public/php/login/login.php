@@ -9,10 +9,8 @@
 		if (!empty($_POST['username']) || !empty($_POST['password'])) {
 			// checking username and password are correct
 			if ($_POST['username'] == 'g' && $_POST['password'] == 'g') {
-				// assigned session key
-				$_SESSION['logged_in_user'] = $username;
 				// sends user to this page
-				header("Location: /php/authorized.php");
+				header("Location: /php/login/authorized.php");
 				// kills the login page and turns everything white
 				// kills everything else from loading 
 				die;
@@ -34,7 +32,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title></title>
+        <title>Login</title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">

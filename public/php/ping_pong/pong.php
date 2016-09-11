@@ -1,40 +1,13 @@
-<!-- 
-- Both Pages
-    √ - 2 links
-       √ - Hit
-            √ - if hit the counter increases 
-        √ - Miss
-            √ - if missed then counter goes back to 0 and game is over
-        √ - Links should go to the other page (ping -> pong, vice versa)
-        - Each query string should include if it was a hit or miss and the current count of hits
-    - pageController() - holds all of our PHP
-        - access to the $_GET super-global variable and check the values stored
-        - increase the counter when hit and decrees when missed
-    - extract()
-        - change the return values of the pageController into variables
-- Extra
-    - images
-    - random gen for hit/miss
-    - use CSS and JS to randomly move the hit/miss 
- -->
-
 <?php  
     function pageController() {
-// hit = counter increases and ping.php 
-// miss = reloads page, counter == 0 and goes to pong.php 
         $counter = [];
-        $counter['gameOver'] = '';
+        $counter['gameOver'] = "GAME OVER";
 
         if (isset($_GET['score'])) {
             $counter['score'] = $_GET['score'];
         } else {
             $counter['score'] = 0;
-            $counter['gameOver'] = "GAME OVER!";
         }
-
-        // $score['hit'] = $score['counter'] + 1;
-        // $score['miss'] = $score['counter'] = 0;
-
         return $counter;
     }
     extract(pageController());
@@ -48,19 +21,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>PING</title>
+        <title>PONG</title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
+        
+        <style>
+            body {
+                background-color: darkgreen;
+            }
+
+            .glyphicon {
+                font-size: 50px;
+                margin: 10%;
+            }
+
+            .container {
+                background-color: darkgreen;
+                position: relative;
+
+                border: 6px solid white;
+                text-align: center;
+                display: block;
+                margin: auto;
+                width: 50%;
+                color: white;
+            }
+
+            .divider{
+                position: absolute;
+                left:50%;
+                top: 0%;
+                bottom: 0%;
+                border-left: 4px solid white;
+            }
+
+            img {
+                margin-left: 80%;
+            }
+
+        </style>
     </head>
 
     <body>
+        <div class="divider"></div>
         <div class="container">
             <h1>Score: <?= $score; ?></h1>
-            <h2><?= $gmaeOver; ?></h2>
-            <a href="/php/pong.php?score=<?= $score + 1; ?>" name="hit">HIT</a>
-            <a href="/php/ping.php?score=<?= $score = 0; ?>" name="miss">MISS</a>
+            <a href="/php/ping_pong/ping.php?score=<?= $score + 1; ?>" name="hit" class="glyphicon glyphicon-ok-circle"></a>
+
+            <a href="/php/ping_pong/pong.php?score=<?= $gameOver; ?>" name="miss" class="glyphicon glyphicon-remove-circle"></a>
+
         </div>
+        <img src="ppballrev.png">
+
+        
+
 
         
    
