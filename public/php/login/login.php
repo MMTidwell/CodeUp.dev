@@ -18,11 +18,12 @@
 
 				// checks to see if the user is alreay logged in and if isset then it will redirect them to autho page. 
 				if (isset($_SESSION['logged_in_user'])) {
+	                var_dump($_SESSION['logged_in_user']);
 					header("Location: /php/login/authorized.php");
 				}
 
 				// sends user to this page
-				header("Location: /php/login/authorized.php");
+				// header("Location: /php/login/authorized.php");
 				// kills the login page and turns everything white
 				// kills everything else from loading 
 				die;

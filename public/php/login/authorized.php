@@ -3,7 +3,7 @@
 
     if (! $_SESSION['logged_in_user']) {
         $info = "You are not logged in.";
-        header("Location: /login/login.php");
+        header("Location: /php/login/login.php");
     } else {
         $info = $_SESSION['logged_in_user'];
     }
