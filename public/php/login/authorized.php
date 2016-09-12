@@ -1,12 +1,22 @@
 <?php 
+    // session_start has to go at the top of all things
     session_start();
 
-    if (! $_SESSION['logged_in_user']) {
-        $info = "You are not logged in.";
-        header("Location: /php/login/login.php");
-    } else {
-        $info = $_SESSION['logged_in_user'];
+    function pageController() {
+        // check if the user is not logged in
+        if (! isset($_SESSION['logged_in_user'])) {
+            // if not send back to login.php
+            header("Location: /php/login/login.php");
+            die;
+        // else load page normally
+        }
+
+        $info = [];
+        $info['data'] = $_SESSION['logged_in_user'];
+
+        return $info;
     }
+    extract(pageController());
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +27,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title></title>
+        <title>AUTHO PHP</title>
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
@@ -27,6 +37,11 @@
 				color: white;
                 text-align: center;
 			}
+
+            h1 {
+                font-family: cursive;
+                font-weight: bolder;
+            }
 		</style>
     </head>
 	
@@ -34,7 +49,7 @@
         <div class="container">
             <h1>YOU HAVE ENTERD A SUPER SECRET AREA!<br><br><br>GET OUT<br>OR DIE!!!!!!</h1>
 
-            <h3>Username: <?= htmlspecialchars(strip_tags($info)); ?></h3>
+            <h3>Username: <?= htmlspecialchars(strip_tags($data)); ?></h3>
 
             <a href="/php/login/logout.php"><button>Log Out</button></a>
         </div>
