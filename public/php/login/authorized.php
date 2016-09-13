@@ -2,6 +2,11 @@
     // session_start has to go at the top of all things
     session_start();
 
+    // pull in funcitons file
+    require_once __DIR__ . "/../functions.php";
+
+
+
     function pageController() {
         // check if the user is not logged in
         if (! isset($_SESSION['logged_in_user'])) {
@@ -49,7 +54,7 @@
         <div class="container">
             <h1>YOU HAVE ENTERD A SUPER SECRET AREA!<br><br><br>GET OUT<br>OR DIE!!!!!!</h1>
 
-            <h3>Username: <?= htmlspecialchars(strip_tags($data)); ?></h3>
+            <h3>Username: <?= escape($data); ?></h3>
 
             <a href="/php/login/logout.php"><button>Log Out</button></a>
         </div>

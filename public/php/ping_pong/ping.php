@@ -19,12 +19,14 @@
  -->
 
 <?php  
+    require_once __DIR__ . "/../functions.php";
+
     function pageController() {
         $counter = [];
         $counter['gameOver'] = "GAME OVER";
 
-        if (isset($_GET['score'])) {
-            $counter['score'] = $_GET['score'];
+        if (inputHas('score')) {
+            $counter['score'] = inputGet('score');
         } else {
             $counter['score'] = 0;
         }

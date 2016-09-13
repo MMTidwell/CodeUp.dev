@@ -4,20 +4,28 @@
 	// starts the session or resumes and existing one, this must be called before trying to set any session data
 	session_start(); 
 
+	// go up one directory from where login.php is
+	// require_once "../functions.php";
+
+	// __DIR__ is a constant for the current directory of this script
+	// make sure that / is at the beginning of the file name so that way the system reads it correctly
+	require_once __DIR__ . "/../functions.php";
+	echo __DIR__ . "/../functions.php";
+
 	function pageController() {
 		$nope = [];
 		// this is here due to calling the variable in the HTML when input is incorrect
 		$nope['no'] = '';
 
 		// || is used to ensure that both username and password are filled
-		if (!empty($_POST)) {
+		// if (!empty($_POST)) {
 		// OR
-		// if (!empty($_POST['username']) || !empty($_POST['password'])) {
+		if (inputHas('username') || inputHas('password')) {
 
 			// checking username and password are correct
-			if ($_POST['username'] == 'g' && $_POST['password'] == 'g') {
+			if (inputGet('username') == 'g' && inputGet('password') == 'g') {
 				// assigns the session key to username once logged in
-				$_SESSION['logged_in_user'] = $_POST['username'];
+				$_SESSION['logged_in_user'] = inputGet('username');
 				// checks to see if the user is already logged in and if isset then it will redirect them to autho page. 
 				if (isset($_SESSION['logged_in_user'])) {
 					// sends the user to this page
