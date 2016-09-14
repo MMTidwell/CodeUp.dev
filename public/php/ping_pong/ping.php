@@ -19,14 +19,14 @@
  -->
 
 <?php  
-    require_once __DIR__ . "/../functions.php";
+    require_once __DIR__ . "/../../../Input.php";
 
     function pageController() {
         $counter = [];
         $counter['gameOver'] = "GAME OVER";
 
-        if (inputHas('score')) {
-            $counter['score'] = inputGet('score');
+        if (Input::has('score')) {
+            $counter['score'] = Input::get('score');
         } else {
             $counter['score'] = 0;
         }
