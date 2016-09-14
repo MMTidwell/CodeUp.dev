@@ -1,0 +1,1 @@
+GET - implies that we are simply reading data
