@@ -21,7 +21,7 @@
 				// returns true to login.php pageController function
 				return true;
 			} else {
-				$log->info("User $username failed to log in.");
+				$log->error("User $username failed to log in.");
 				return false;
 			}
 		}
