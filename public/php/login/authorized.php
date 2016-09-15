@@ -4,21 +4,17 @@
 
     // pull in funcitons file
     require_once __DIR__ . "/../functions.php";
-
-
+    require_once __DIR__ . "/../../../Auth.php";
 
     function pageController() {
         // check if the user is not logged in
-        if (! isset($_SESSION['logged_in_user'])) {
+        if (Auth::check() == false) {
             // if not send back to login.php
             header("Location: /php/login/login.php");
             die;
         // else load page normally
         }
-
-        $info = [];
-        $info['data'] = $_SESSION['logged_in_user'];
-
+        $info['username'] = Auth::user();
         return $info;
     }
     extract(pageController());
@@ -54,7 +50,7 @@
         <div class="container">
             <h1>YOU HAVE ENTERD A SUPER SECRET AREA!<br><br><br>GET OUT<br>OR DIE!!!!!!</h1>
 
-            <h3>Username: <?= escape($data); ?></h3>
+            <h3>Username: <?= escape($username); ?></h3>
 
             <a href="/php/login/logout.php"><button>Log Out</button></a>
         </div>

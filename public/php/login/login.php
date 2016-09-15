@@ -10,9 +10,13 @@
 	// __DIR__ is a constant for the current directory of this script
 	// make sure that / is at the beginning of the file name so that way the system reads it correctly
 	require_once __DIR__ . "/../functions.php";
+    require_once __DIR__ . "/../../../Input.php";
+    require_once __DIR__ . "/../../../Auth.php";
+
 	echo __DIR__ . "/../functions.php";
 
-	function pageController() {
+	function pageController() 
+	{
 		$nope = [];
 		// this is here due to calling the variable in the HTML when input is incorrect
 		$nope['no'] = '';
@@ -20,17 +24,18 @@
 		// || is used to ensure that both username and password are filled
 		// if (!empty($_POST)) {
 		// OR
-		if (inputHas('username') || inputHas('password')) {
+		if (inputHas('username') || inputHas('password')) 
+		{
+			// var_dump(Input::get('username'));
+			$name = Input::get('username');
+			$pass = Input::get('password');
 
 			// checking username and password are correct
-			if (inputGet('username') == 'g' && inputGet('password') == 'g') {
-				// assigns the session key to username once logged in
-				$_SESSION['logged_in_user'] = inputGet('username');
-				// checks to see if the user is already logged in and if isset then it will redirect them to autho page. 
-				if (isset($_SESSION['logged_in_user'])) {
-					// sends the user to this page
-					header("Location: /php/login/authorized.php");
-				}
+			// assigns the session key to username once logged in
+			// checks to see if the user is already logged in and if isset then it will redirect them to autho page. 
+			if (Auth::attempt($name, $pass) == true) {
+				// sends the user to this page
+				header("Location: /php/login/authorized.php");
 				// kills the login page and turns everything white
 				// kills everything else from loading 
 				die;
@@ -72,7 +77,7 @@
 			<form method="POST">
 				<p>
 					<h2><?= $no; ?></h2>	
-					<em>Test with g for username and password.</em>
+					<em>Test with "guest" for username "password" and password.</em>
 				</p>
 				<p>
 					<label for="username">Username</label>
