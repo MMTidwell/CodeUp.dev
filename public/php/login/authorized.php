@@ -2,18 +2,20 @@
     // session_start has to go at the top of all things
     session_start();
 
-    // pull in funcitons file
+    // pull in functions file
     require_once __DIR__ . "/../functions.php";
     require_once __DIR__ . "/../../../Auth.php";
 
     function pageController() {
-        // check if the user is not logged in
+        // goes to Auth.php to check if the user is logged in
         if (Auth::check() == false) {
-            // if not send back to login.php
+            // if not send back to login.php since they are not logged in and we dont want them in our secret society
             header("Location: /php/login/login.php");
+            // dramatically kills the page and will not allow anything to load
             die;
         // else load page normally
         }
+        // sets the username property by going to Auth.php, user()
         $info['username'] = Auth::user();
         return $info;
     }
@@ -50,8 +52,10 @@
         <div class="container">
             <h1>YOU HAVE ENTERD A SUPER SECRET AREA!<br><br><br>GET OUT<br>OR DIE!!!!!!</h1>
 
+            <!-- prints username -->
             <h3>Username: <?= escape($username); ?></h3>
 
+            <!-- logout button sends you to logout.php -->
             <a href="/php/login/logout.php"><button>Log Out</button></a>
         </div>
    

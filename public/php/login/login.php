@@ -4,35 +4,33 @@
 	// starts the session or resumes and existing one, this must be called before trying to set any session data
 	session_start(); 
 
-	// go up one directory from where login.php is
-	// require_once "../functions.php";
-
 	// __DIR__ is a constant for the current directory of this script
 	// make sure that / is at the beginning of the file name so that way the system reads it correctly
 	require_once __DIR__ . "/../functions.php";
     require_once __DIR__ . "/../../../Input.php";
     require_once __DIR__ . "/../../../Auth.php";
 
-	echo __DIR__ . "/../functions.php";
+	echo "FUNCTIONS.PHP =>" . __DIR__ . "/../functions.php" . "<br>";
+	echo "INPUT.PHP =>" . __DIR__ . "/../../../Input.php" . "<br>";
+	echo "AUTH.PHP =>" . __DIR__ . "/../../../Auth.php" . "<br>";
 
 	function pageController() 
 	{
+		// build empty array so that we can extract it later
 		$nope = [];
 		// this is here due to calling the variable in the HTML when input is incorrect
 		$nope['no'] = '';
 
 		// || is used to ensure that both username and password are filled
-		// if (!empty($_POST)) {
+		if (!empty($_POST)) {
 		// OR
-		if (inputHas('username') || inputHas('password')) 
-		{
-			// var_dump(Input::get('username'));
+		// if (inputHas('username') || inputHas('password')) 
+		// {
+			// assigns property to value entered
 			$name = Input::get('username');
 			$pass = Input::get('password');
 
-			// checking username and password are correct
-			// assigns the session key to username once logged in
-			// checks to see if the user is already logged in and if isset then it will redirect them to autho page. 
+			// goes to Auth.php to check if the username and password are correct with the param $name and $pass pulled from Input.php
 			if (Auth::attempt($name, $pass) == true) {
 				// sends the user to this page
 				header("Location: /php/login/authorized.php");
@@ -40,7 +38,7 @@
 				// kills everything else from loading 
 				die;
 			} else {
-				// runs when info is wrong
+				// runs when info is wrong, used in HTML
 				$nope['no'] = "OH HELL NO!";	
 			}
 		}
@@ -76,6 +74,7 @@
 			<h1>Login Form</h1>
 			<form method="POST">
 				<p>
+					<!-- used to tell user that the username and password are not correct -->
 					<h2><?= $no; ?></h2>	
 					<em>Test with "guest" for username "password" and password.</em>
 				</p>
