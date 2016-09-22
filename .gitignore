@@ -1,4 +1,9 @@
 .DS_Store
 
-db_connect.php
+========== First Connect Testing
+db_connect.php 
 pdo_test.php
+
+========== National Parks Exercises
+park_migration.php
+park_seeder.php
