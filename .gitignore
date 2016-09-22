@@ -1,2 +1,4 @@
 .DS_Store
 
+db_connect.php
+pdo_test.php
