@@ -1,13 +1,16 @@
 <?php 
+// fetches the constants and gives to the connect file in order to connect to the DB
 require_once("db_constants_nat_park.php");
 require("db_connect.php");
 
 // Tell PDO to throw exceptions on error
-// $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+// empties file, if anything in the national parks DB
 $drop = 'TRUNCATE national_parks';
 $dbc->exec($drop);
 
+// array of the national parks with name, location. estab date, and size
 $parks = [
 	['name' => 'Acadia','location' => 'Maine','date_established' => '1919-02-26','area_in_acres' => '47389.67',],
 	['name' => 'American Samoa','location' => 'American Samoa','date_established' => '1988-10-31','area_in_acres' => '9000.00',],
@@ -70,11 +73,15 @@ $parks = [
 	['name' => 'Zion','location' => 'Utah','date_established' => '1919-11-19','area_in_acres' => '146597.60',],
 ];
 
+// iterates through the entire list assigning key=>value pairs
 foreach ($parks as $park) {
 	$data = "INSERT INTO national_parks (name, location, date_established, area_in_acres)
+			  -- inserting the values into DB using the PHP formatting in order to not loose the key => value pairs
 			  VALUES ('{$park['name']}', '{$park['location']}', '{$park['date_established']}', '{$park['area_in_acres']}')";
 
+	//array is filled in with every line of output from the command
 	$dbc->exec($data);
+
 	// echo "Inserted ID: " . $dbc->lastInsertId() . PHP_EOL;
 }
 

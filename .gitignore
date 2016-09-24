@@ -1,6 +1,6 @@
 .DS_Store
 
-========== First Connect Testing
+========== First Connect To DB Testing
 db_connect.php 
 pdo_test.php
 

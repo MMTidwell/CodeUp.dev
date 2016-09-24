@@ -9,7 +9,7 @@ Modify your page to add links to go to the next or previous page(s).
 Add some logic to determine whether or not to show the next and/or previous page links. 
 -->
 <?php 
-	// pulls files for DB
+	// fetches the constants and gives to the connect file in order to connect to the DB
 	require_once __DIR__ . "/../../pdo/db_constants_nat_park.php";
 	require_once __DIR__ . "/../../pdo/db_connect.php";
 
@@ -17,7 +17,7 @@ Add some logic to determine whether or not to show the next and/or previous page
 	function pageController($dbc) {
 		// Constant set for amount of parks displayed
 		define('RPP', 4);
-		
+
 		$value = [];
 		$offBy = 0;
 
