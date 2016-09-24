@@ -5,5 +5,4 @@ db_connect.php
 pdo_test.php
 
 ========== National Parks Exercises
-park_migration.php
-park_seeder.php
+db_constants_nat_park.php
