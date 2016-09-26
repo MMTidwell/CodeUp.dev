@@ -28,6 +28,11 @@ class Input
         return $value;
     }
 
+    public static function isPost()
+    {
+        return !empty($_POST);
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
