@@ -1,33 +1,23 @@
-<?php 
-// dbc - mailman
-// stmt - physical mail
-
-	// Modify your page to add links to go to the next or previous page(s).
-
-	// Add some logic to determine whether or not to show the next and/or previous page links.
-
-
-
-
-
-	// uses both files in order to connect and run database for the national parks query
+<?php
+	
+	// opens constants file, and uses them in the connect file in order to connect the page to the DB
+	// Input calls is called in order to get, getString, and isPost functions to help use GET and POST
 	require_once __DIR__ . "/../../../pdo/db_constants_nat_park.php";
 	require_once __DIR__ . "/../../../pdo/db_connect.php";
 	require_once __DIR__ . "/../../../login/Input.php";
 
-	// $dbc parameter is being pulled from db_connect.php file
-	// $dbc gathers info for us
+	// $dbc (database controller) is being pulled from the db_connect file in order to create an object
 	function pageController($dbc) {
+		// RPP (results per page) is set as a constant in order to use in PHP and HTNL without passing it in the return key=>values
 		define('RPP', 4);
 
-        // this section takes the user input and places it into the DB
+        // This section takes the user input from the form and places it into the DB. 
         if(Input::isPost()) {
-        	var_dump($_POST);
-        	$name = Input::get('name');
-        	$location = Input::get('location');
-        	$date_established = Input::get('date_established');
-        	$area_in_acres = Input::get('area_in_acres');
-        	$description = Input::get('description');
+        	$name = Input::getString('name');
+        	$location = Input::getString('location');
+        	$date_established = Input::getString('date_established');
+        	$area_in_acres = Input::getString('area_in_acres');
+        	$description = Input::getString('description');
 
         	$insert = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
 					   VALUES (:name, :location, :date_established, :area_in_acres, :description)';
@@ -39,6 +29,7 @@
 			$stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
 			$stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
 			$stmt->bindValue(':description', $description, PDO::PARAM_STR);
+			
 			$stmt->execute();
         }
 
@@ -99,32 +90,7 @@
 	
 	        <!-- Bootstrap core CSS -->
 	        <link rel="stylesheet" href="/bootstrap-3.3.6-dist/css/bootstrap.css">
-
-            <style>
-                body {
-                    background: url("national_parks_background.jpg");
-                    background: cover;
-                    color: white;
-                    padding-top: 5%;
-                }
-
-                form {
-                	color: black;
-                }
-
-                #pageNum {
-                    font-size: 20px;
-                }
-
-				table {
-				    background: rgba(0, 0, 0, 0.4);
-				}
-
-                a {
-                    color: white;
-                }
-
-            </style>
+			<link rel="stylesheet" href="nat_parks.css">
 	    </head>
 	
 	    <body>
@@ -150,43 +116,48 @@
                             <td><?= $park['description'] ?></td>
                         </tr>
                     <?php } ?>
+
                 </table>
-
+                
                 <!-- anchors for pages -->
-				<ul class="pagination">
-                    <div id="pageNum">
-                        <!-- makes anchor for most of array only ones left out are the remainder of the division -->
-                        <?php for ($i = 1; $i <= $max_page; $i += 1) {?>
-    				        <a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $i ?>"> <?= $i ?> </a>
-                        <?php } ?>
-                    </div>
-				</ul>
-
-				<!-- form -->
-				<div>
-					<form method="POST">
-						<p>
-							<label for="name"></label>
-							<input name="name" type="text" placeholder="Name">
-						</p>
-						<p>
-							<label for="location"></label>
-							<input name="location" type="text" placeholder="Location">
-						</p>
-						<p>
-							<label for="date_established"></label>
-							<input name="date_established" type="text" placeholder="Date Established">
-						</p>
-						<p>
-							<label for="size"></label>
-							<input name="area_in_acres" type="text" placeholder="Size">
-						</p>
-						<p>
-							<textarea name="description" placeholder="Description"></textarea>
-						</p>
-						<button type="submit">Submit</button>
-					</form>
+                <div class="text-center">
+					<ul class="pagination">
+	                    <div id="pageNum">
+	                    	<a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $page - 1 ?>"> < </a>
+	                        <!-- makes anchor for most of array only ones left out are the remainder of the division -->
+	                        <?php for ($i = 1; $i <= $max_page; $i += 1) {?>
+	    				        <a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $i ?>"> <?= $i ?> </a>
+	                        <?php } ?>
+	                    	<a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $page - 1 ?>"> > </a>
+	                    </div>
+					</ul>
 				</div>
+			</div>
+
+			<div>
+				<!-- form -->
+				<form method="POST">
+					<div class="form-group">
+						<label for="name"></label>
+						<input class="form-control" name="name" type="text" placeholder="Name">
+					
+						<label for="location"></label>
+						<input class="form-control" name="location" type="text" placeholder="Location">
+					
+						<label for="date_established"></label>
+						<input class="form-control" name="date_established" type="text" placeholder="Date Established">
+					
+						<label for="size"></label>
+						<input class="form-control" name="area_in_acres" type="text" placeholder="Size">
+					
+						<br>
+						<textarea class="form-control" name="description" placeholder="Description"></textarea>
+						
+						<br>
+						<button class="btn btn-primary" type="submit">Submit</button>
+					</div>
+				</form>
+
 
 			</div>
 	

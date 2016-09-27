@@ -33,6 +33,14 @@ class Input
         return !empty($_POST);
     }
 
+    public static function getString($key)
+    {
+        $input = self::get($key);
+        if(!empty($input)) {
+            return trim($input);
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //

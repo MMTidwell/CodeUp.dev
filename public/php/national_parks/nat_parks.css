@@ -1,0 +1,31 @@
+body {
+    background: url("national_parks_background.jpg");
+    background: cover;
+    height: 100%;
+    color: white;
+}
+
+.form-group {
+    margin: 0 auto;
+    color: black;
+    width: 60%;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1%;
+    border: 1px solid white;
+    margin-bottom: 5%;
+}
+
+#pageNum {
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1%;
+    border: 1px solid white;
+}
+
+table {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+a {
+    color: white;
+}
