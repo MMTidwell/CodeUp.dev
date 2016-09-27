@@ -1,7 +1,7 @@
 body {
     background: url("national_parks_background.jpg");
-    background: cover;
-    height: 100%;
+    /* fixes the image to the page so you can scroll over it */
+    background-attachment: fixed;
     color: white;
 }
 
@@ -16,13 +16,13 @@ body {
 }
 
 #pageNum {
-    font-size: 20px;
+    font-size: 130%;
     background: rgba(0, 0, 0, 0.4);
     padding: 1%;
     border: 1px solid white;
 }
 
-table {
+.table-bordered {
     background: rgba(0, 0, 0, 0.4);
 }
 
