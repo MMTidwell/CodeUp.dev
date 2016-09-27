@@ -155,7 +155,7 @@
 	    				        <a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $i ?>"> <?= $i ?> </a>
 	                        <?php } ?>
 	                    	<!-- next button -->
-	                    	<a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $page - 1 ?>"> > </a>
+	                    	<a href="http://codeup.dev/php/national_parks/national_parks.php?page=<?= $page + 1 ?>"> > </a>
 	                    </div> <!-- closes the pageNum div -->
 					</ul> <!-- closes the pagination ul -->
 				</div> <!-- closes the anchor div -->
