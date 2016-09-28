@@ -4,7 +4,7 @@
 
     // pull in functions file
     require_once __DIR__ . "/../functions.php";
-    require_once __DIR__ . "/../../../Auth.php";
+    require_once __DIR__ . "/../../../login/Auth.php";
 
     function pageController() {
         // goes to Auth.php to check if the user is logged in

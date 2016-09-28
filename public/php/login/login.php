@@ -7,8 +7,9 @@
 	// __DIR__ is a constant for the current directory of this script
 	// make sure that / is at the beginning of the file name so that way the system reads it correctly
 	require_once __DIR__ . "/../functions.php";
-    require_once __DIR__ . "/../../../Input.php";
-    require_once __DIR__ . "/../../../Auth.php";
+    require_once __DIR__ . "/../../../login/Input.php";
+    require_once __DIR__ . "/../../../login/Auth.php";
+
 
 	echo "FUNCTIONS.PHP =>" . __DIR__ . "/../functions.php" . "<br>";
 	echo "INPUT.PHP =>" . __DIR__ . "/../../../Input.php" . "<br>";
