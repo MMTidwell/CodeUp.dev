@@ -41,7 +41,7 @@ class Input
             return trim($input);
         } else {
             // throws an error if there is no input or not a string
-            throw new Exception('Error: The input was not a string');
+            throw new Exception('Error: THE INPUT IS NOT A STRING');
         }
     }
 
@@ -50,11 +50,11 @@ class Input
         $input = self::get($key);
         // is_numeric makes sure that the input is a number
         if(is_numeric($input)) {
-            // turns string into a float 
+            // turns string into a integer 
             $input = floatval($input);
             return $input;
         } else {
-            throw new Exception('Error: The input was not a number');
+            throw new Exception('Error: THE INPUT IS NOT A NUMBER');
         }
     }
 

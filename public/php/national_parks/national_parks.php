@@ -11,35 +11,65 @@
 		// RPP (results per page) is set as a constant in order to use in PHP and HTNL without passing it in the return key=>values
 		define('RPP', 4);
 
+		// $errors is pulled out of if statement in order to be able to return and use as keys
+        $errors = [];
+        
         // This section takes the user input from the form and places it into the DB. 
         // Input class is called in order to use the getString method, this will check to make sure that each box if filled in and not returning null. If there is a null then it will throw a PHP error.
         if(Input::isPost()) {
+
         	// the variables are assigned to getString and assign a key so we can call, bind, and execute them. 
-        	$name = Input::getString('name');
-        	$location = Input::getString('location');
-        	$date_established = Input::getString('date_established');
-        	$area_in_acres = Input::getNumber('area_in_acres');
-        	$description = Input::getString('description');
+        	try {
+        		$name = Input::getString('name');
+        	} catch (Exception $e) {
+        		array_push($errors, $e->getMessage());
+        	}
 
-        	// insert is set to a SQL string which inserts the data given by the user into the database table
-        	$insert = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
-					   VALUES (:name, :location, :date_established, :area_in_acres, :description)';
+        	try {
+	        	$location = Input::getString('location');
+        	} catch (Exception $e) {
+        		array_push($errors, $e->getMessage());
+        	}
 
-			// stmt calls the dbc object
-			// prepare will insert the data as a string so the user can not do anything other than add to the database
-        	$stmt = $dbc->prepare($insert);
-			
-			// stmt uses the assignment operator to bindValue
-			// this will bind a value to a parameter
-			// syntax - bindValue(:param, $variable, data type)
-			$stmt->bindValue(':name', $name, PDO::PARAM_STR);
-			$stmt->bindValue(':location', $location, PDO::PARAM_STR);
-			$stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-			$stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
-			$stmt->bindValue(':description', $description, PDO::PARAM_STR);
-			
-			// stmt executes the prepared statement by using execute()
-			$stmt->execute();
+        	try {
+	        	$date_established = Input::getString('date_established');
+        	} catch (Exception $e) {
+        		array_push($errors, $e->getMessage());
+        	}
+
+        	try {
+	        	$area_in_acres = Input::getNumber('area_in_acres');
+        	} catch (Exception $e) {
+        		array_push($errors, $e->getMessage());
+        	}
+
+        	try {
+	        	$description = Input::getString('description');
+        	} catch (Exception $e) {
+        		array_push($errors, $e->getMessage());
+        	}
+
+			if (empty($errors)) {
+	        	// insert is set to a SQL string which inserts the data given by the user into the database table
+	        	$insert = 'INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
+						   VALUES (:name, :location, :date_established, :area_in_acres, :description)';
+
+				// stmt calls the dbc object
+				// prepare will insert the data as a string so the user can not do anything other than add to the database
+	        	$stmt = $dbc->prepare($insert);
+				
+				// stmt uses the assignment operator to bindValue
+				// this will bind a value to a parameter
+				// syntax - bindValue(:param, $variable, data type)
+				$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+				$stmt->bindValue(':location', $location, PDO::PARAM_STR);
+				$stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
+				$stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
+				$stmt->bindValue(':description', $description, PDO::PARAM_STR);
+				
+				// stmt executes the prepared statement by using execute()
+				$stmt->execute();
+			}
         }
 
 		// SQL query set to get all info from array and display. echo bellow is to ensure that the SQL is reading correctly and double checking for spacing.
@@ -88,7 +118,8 @@
 			// determines how many parks are left in the query
             'page' => $page,
             // uses max_page to determine the pages at the bottom of the table
-            'max_page' => $max_page
+            'max_page' => $max_page,
+            'errors' => $errors
 		];
 	}
 	// extract will take the return and turn it into key=>values in order to be called in the HTML. This must be done otherwise you can not pull anything from the PHP into the HTML
@@ -161,6 +192,14 @@
 				</div> <!-- closes the anchor div -->
 			</div> <!-- closes the container div holding the table and pages -->
 
+			<div class="text-center" style="color:yellow">
+				<?php if (!empty($errors)) { ?>
+					<?php foreach ($errors as $error) { ?>
+						<h4><?= $error ?></h4>
+					<?php } ?>
+				<?php } ?>
+			</div>
+
 <!-- form -->
 			<div> <!-- starts the div for the form, separating it from the table and pages div -->
 				<!-- POST is added in to make sure that we can post data that the user has inputed -->
@@ -169,20 +208,20 @@
 					<div class="form-group">
 						<label for="name"></label>
 						<input class="form-control" name="name" type="text" placeholder="Name">
-					
+
 						<label for="location"></label>
 						<input class="form-control" name="location" type="text" placeholder="Location">
-					
+
 						<label for="date_established"></label>
-						<input class="form-control" name="date_established" type="text" placeholder="Date Established">
-					
+						<input class="form-control" name="date_established" type="text" placeholder="Date Established: YYYY-MM-DD">
+
 						<label for="size"></label>
-						<input class="form-control" name="area_in_acres" type="number" placeholder="Size">
-					
+						<input class="form-control" name="area_in_acres" type="text" placeholder="Size">
+
 						<!-- br is due to formatting -->
 						<br>
 						<textarea class="form-control" name="description" placeholder="Description"></textarea>
-						
+
 						<!-- br is due to formatting -->
 						<br>
 						<button class="btn btn-primary" type="submit">Submit</button>
