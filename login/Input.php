@@ -35,11 +35,29 @@ class Input
 
     public static function getString($key)
     {
+        // checks to see if user input is there and a string
         $input = self::get($key);
-        if(!empty($input)) {
+        if(is_string($input)) {
             return trim($input);
+        } else {
+            // throws an error if there is no input or not a string
+            throw new Exception('Error: The input was not a string');
         }
     }
+
+    public static function getNumber($key)
+    {
+        $input = self::get($key);
+        // is_numeric makes sure that the input is a number
+        if(is_numeric($input)) {
+            // turns string into a float 
+            $input = floatval($input);
+            return $input;
+        } else {
+            throw new Exception('Error: The input was not a number');
+        }
+    }
+
 
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //

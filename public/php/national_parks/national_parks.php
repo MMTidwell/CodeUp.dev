@@ -18,7 +18,7 @@
         	$name = Input::getString('name');
         	$location = Input::getString('location');
         	$date_established = Input::getString('date_established');
-        	$area_in_acres = Input::getString('area_in_acres');
+        	$area_in_acres = Input::getNumber('area_in_acres');
         	$description = Input::getString('description');
 
         	// insert is set to a SQL string which inserts the data given by the user into the database table
@@ -35,7 +35,7 @@
 			$stmt->bindValue(':name', $name, PDO::PARAM_STR);
 			$stmt->bindValue(':location', $location, PDO::PARAM_STR);
 			$stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-			$stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
+			$stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
 			$stmt->bindValue(':description', $description, PDO::PARAM_STR);
 			
 			// stmt executes the prepared statement by using execute()
@@ -177,7 +177,7 @@
 						<input class="form-control" name="date_established" type="text" placeholder="Date Established">
 					
 						<label for="size"></label>
-						<input class="form-control" name="area_in_acres" type="text" placeholder="Size">
+						<input class="form-control" name="area_in_acres" type="number" placeholder="Size">
 					
 						<!-- br is due to formatting -->
 						<br>
