@@ -22,7 +22,7 @@
         	try {
 	        	// the variables are assigned to getString and assign a key so we can call, bind, and execute them. 
 	        	// htmlentities will strip the input to further ensure that we do not have malicious attacks with html
-        		$name = htmlentities(Input::getString('name'));
+        		$name = htmlentities(Input::getString('name', 0, 249));
         	// $e is a commonly used name here and stands for exception or error
         	} catch (Exception $e) {
         		// array_push - pushes it to the array 
@@ -31,7 +31,7 @@
         	}
 
         	try {
-	        	$location = htmlentities(Input::getString('location'));
+	        	$location = htmlentities(Input::getString('location', 0, 249));
         	} catch (Exception $e) {
         		array_push($errors, $e->getMessage());
         	}
@@ -43,13 +43,13 @@
         	}
 
         	try {
-	        	$area_in_acres = Input::getNumber('area_in_acres');
+	        	$area_in_acres = Input::getNumber('area_in_acres', 0, 249);
         	} catch (Exception $e) {
         		array_push($errors, $e->getMessage());
         	}
 
         	try {
-	        	$description = htmlentities(Input::getString('description'));
+	        	$description = htmlentities(Input::getString('description', 0, 249));
         	} catch (Exception $e) {
         		array_push($errors, $e->getMessage());
         	}
