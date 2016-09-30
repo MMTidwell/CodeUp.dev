@@ -18,15 +18,20 @@
         // Input class is called in order to use the getString method, this will check to make sure that each box if filled in and not returning null. If there is a null then it will throw a PHP error.
         if(Input::isPost()) {
 
-        	// the variables are assigned to getString and assign a key so we can call, bind, and execute them. 
+        	// try and catch is to check if the input is valid and if it is not then catch will go to Input.php and and get the error that needs to be thrown. 
         	try {
-        		$name = Input::getString('name');
+	        	// the variables are assigned to getString and assign a key so we can call, bind, and execute them. 
+	        	// htmlentities will strip the input to further ensure that we do not have malicious attacks with html
+        		$name = htmlentities(Input::getString('name'));
+        	// $e is a commonly used name here and stands for exception or error
         	} catch (Exception $e) {
+        		// array_push - pushes it to the array 
+        		// $e->getMessage() - gets the message from Input.php by using the throw new Exception message
         		array_push($errors, $e->getMessage());
         	}
 
         	try {
-	        	$location = Input::getString('location');
+	        	$location = htmlentities(Input::getString('location'));
         	} catch (Exception $e) {
         		array_push($errors, $e->getMessage());
         	}
@@ -44,7 +49,7 @@
         	}
 
         	try {
-	        	$description = Input::getString('description');
+	        	$description = htmlentities(Input::getString('description'));
         	} catch (Exception $e) {
         		array_push($errors, $e->getMessage());
         	}
@@ -119,6 +124,7 @@
             'page' => $page,
             // uses max_page to determine the pages at the bottom of the table
             'max_page' => $max_page,
+            // uses the errors in the try/catch to get error message
             'errors' => $errors
 		];
 	}
@@ -164,7 +170,7 @@
                             <td><?= $park['location'] ?></td>
                             <td><?= $park['date_established'] ?></td>
                             <td><?= $park['area_in_acres'] ?></td>
-                            <td class="overflow"><?= $park['description'] ?></td>
+                            <td><?= $park['description'] ?></td>
                         </tr>
                     <?php } ?>
 	<!-- closes the table -->
@@ -192,7 +198,9 @@
 				</div> <!-- closes the anchor div -->
 			</div> <!-- closes the container div holding the table and pages -->
 
+<!-- exception / error message -->
 			<div class="text-center" style="color:yellow">
+				<!-- checks to see if the $errors array is empty. If the array is not empty then it will iterate through each item in the array and then display it in yellow above the form section -->
 				<?php if (!empty($errors)) { ?>
 					<?php foreach ($errors as $error) { ?>
 						<h4><?= $error ?></h4>

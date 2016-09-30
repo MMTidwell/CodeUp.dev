@@ -13,7 +13,7 @@ class Square extends Rectangle {
 
 	// creates it own perimeter method, this is not pulling the method from the parent
 	// getHeight and getWidth are used from the parent class so we can see them since the variables are set to private
-	public function perimeter (){
+	public function perimeter() {
 		return 2 * ($this->getHeight() + $this->getHeight());
 	}
 
