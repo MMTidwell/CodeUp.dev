@@ -2,7 +2,7 @@
 
 // __DIR__ is a *magic constant* with the directory path containing this file.
 // This allows us to correctly require_once Model.php, no matter where this file is being required from.
-require_once __DIR__ . '/Model.php';
+require_once __DIR__ . '/Model1.php';
 
 class User extends Model
 {
@@ -11,18 +11,19 @@ class User extends Model
     {
         // @TODO: Use prepared statements to ensure data security
         // Set up the SQL statement for how it will be iterated
-        $insert = "INSERT INTO users (name, location, date_established, area_in_acres, description)
-                    VALUES (:name, :location, :date_established, :area_in_acres, :description";
+        $insert = "INSERT INTO users (NAME, email, role_id)
+                    VALUES (:name, :email, :role_id)";
         // prepare the statement in order to protect it for unwanted code
-        $stmt = $dbc->prepare($insert);
+        $stmt = self::$dbc->prepare($insert);
 
         // @TODO: You will need to iterate through all the attributes to build the prepared query
         // bindValue($parameter, $value, $data_type)
         $stmt->bindValue(':name', $name, PDO::PARAM_STR);
-        $stmt->bindValue(':location', $location, PDO::PARAM_STR);
-        $stmt->bindValue(':date_established', $date_established, PDO::PARAM_STR);
-        $stmt->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_INT);
-        $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':role_id', $role_id, PDO::PARAM_INT);
+        // foreach ($this->attributes as $column => $value) {
+        //     $stmt->bindValue(':' . $column, $value, PDO::PARAM_STR);
+        // }
 
         // stmt executes the prepared statement by using execute()
         $stmt->execute();
@@ -39,16 +40,15 @@ class User extends Model
     protected function update()
     {
         // @TODO: Use prepared statements to ensure data security
-        $update = "UPDATE users SET name = :name, location = :location, date_established = :date_established, area_in_acres = :area_in_acres, description = :description WHERE id = :id";
-        $stmt = $dbc->prepare($update); 
+        $update = "UPDATE users SET NAME = :name, email = :email, role_id = :role_id WHERE id = :id";
+        $stmt = self::$dbc->prepare($update); 
 
         // @TODO: You will need to iterate through all the attributes to build the prepared query
-        $stmt->bindValue(':name', $this->attributes['name'], PDO::PARAM_STR);
-        $stmt->bindValue(':location', $this->attributes['location'], PDO::PARAM_STR);
-        $stmt->bindValue(':date_established', $this->attributes['date_established'], PDO::PARAM_STR);
-        $stmt->bindValue(':area_in_acres', $this->attributes['area_in_acres'], PDO::PARAM_INT);
-        $stmt->bindValue(':description', $this->attributes['description'], PDO::PARAM_STR);
+        $stmt->bindValue(':name', $this->attributes['NAME'], PDO::PARAM_STR);
+        $stmt->bindValue(':email', $this->attributes['email'], PDO::PARAM_STR);
+        $stmt->bindValue(':role_id', $this->attributes['role_id'], PDO::PARAM_INT);
 
+        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
         $stmt->execute();
     }
 
@@ -68,18 +68,21 @@ class User extends Model
 
         // @TODO: Create select statement using prepared statements
         $find = "SELECT * FROM users WHERE id = :id";
-        $stmt = $dbc->prepare($find);
+        $stmt = self::$dbc->prepare($find);
 
         $stmt->bindValue('id', $id, PDO::PARAM_STR);
         $stmt->execute();
 
         // @TODO: Store the result in a variable named $result
-        // Fetches the next row form a result set
+        // Fetches the next row form a result set and sets it to an associative array
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        var_dump($result);
 
         // The following code will set the attributes on the calling object based on the result variable's contents
         $instance = null;
         if ($result) {
+            // makes a new instance of something the User class
             $instance = new static($result);
         }
         return $instance;
@@ -98,7 +101,25 @@ class User extends Model
 
         // @TODO: Learning from the find method, return all the matching records
         $all = 'SELECT * FROM users';
-        $stmt = $dbc->prepare($all);
+        $stmt = self::$dbc->query($all);
+
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // The following code will set the attributes on the calling object based on the result variable's contents
+        $instance = null;
+        if ($results) {
+            // makes a new instance of something the User class
+            $instance = new static($results);
+        }
+        return $instance;
+    }
+
+    public function delete() 
+    {
+        $query = 'DELETE FROM users WHERE id = :id';
+        $stmt = self::$dbc->prepare($query);
+
+        $stmt->bindValue(':id', $this->attributes['id'], PDO::PARAM_INT);
         $stmt->execute();
     }
 }

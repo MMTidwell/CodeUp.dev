@@ -34,6 +34,7 @@ abstract class Model
      */
     protected static function dbConnect()
     {
+        // makes sure that it does not open multiple db's
         if (!self::$dbc) {
             // @TODO: Connect to database
             // Constants are pulled from seperate file 
@@ -89,7 +90,7 @@ abstract class Model
         // @TODO: Ensure there are values in the attributes array before attempting to save
         if (!empty($this->attributes)) {
             // @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert
-            if(isset($this->attributes['id'])) {
+            if(array_key_exists('id', $this->attributes)) {
                 $this->update();
             } else {
                 $this->insert();
