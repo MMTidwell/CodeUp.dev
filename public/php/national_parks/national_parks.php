@@ -2,8 +2,8 @@
 	
 	// opens constants file, and uses them in the connect file in order to connect the page to the DB
 	// Input calls is called in order to get, getString, and isPost functions to help use GET and POST
-	require_once __DIR__ . "/../../../pdo/db_constants_nat_park.php";
-	require_once __DIR__ . "/../../../pdo/db_connect.php";
+	require_once __DIR__ . "/../../../national_parks/db_constants_nat_park.php";
+	require_once __DIR__ . "/../../../national_parks/db_connect.php";
 	require_once __DIR__ . "/../../../login/Input.php";
 
 	// $dbc (database controller) is being pulled from the db_connect file in order to create an object

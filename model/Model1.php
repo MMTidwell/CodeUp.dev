@@ -1,7 +1,4 @@
 <?php
-// this file is called in order to get the constants for the DB connect in the __construct function. This will change depending on what DB you are working with
-require_once("db_constants_nat_park.php");
-
 
 abstract class Model
 {
@@ -45,6 +42,7 @@ abstract class Model
             // PDO::ATTER_ERRMODE - error reporting
             // PDO::ERRMODE_EXCEPTION - sets its properties to reflect the error code and error info. 
             $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            self::$dbc = $dbc;
         }
     }
 
