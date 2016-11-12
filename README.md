@@ -1,5 +1,3 @@
 # CodeUp Web Exercises
 
-This is a repository of exercises I did at CodeUp
-
-You should check my portfolio!
+While attending Codeup I learned HTML, CSS, JavaScripts, AJAX, jQuery, PHP, and Laravel. Here are a few of the exercises that I did. 
