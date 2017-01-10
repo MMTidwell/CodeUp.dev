@@ -3,7 +3,7 @@
 $(document).ready(function(){
 	// ================= Variables ===========================
 	// my api for openweathermap.org
-	const myAPIKey = "AIzaSyBYgI0JJFkVB4U8iC-sOL4dgGZGY8rbCFA";
+	const myAPIKey = "ffef12efaed7d08d451bf3c9384cff70";
 
 	var days = 6;
 	var markerLat = 39.8282
