@@ -3,9 +3,6 @@
 require_once("db_constants_nat_park.php");
 require_once("db_connect.php");
 
-// Tell PDO to throw exceptions on error
-$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // empties file, if anything in the national parks DB
 $drop = 'TRUNCATE national_parks';
 $dbc->exec($drop);

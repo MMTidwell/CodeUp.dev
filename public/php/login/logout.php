@@ -6,11 +6,13 @@
 
 	// it is better to use all four session elements when logging someone out. doing just the 2 step method is not going to be as strong for your client
 	function clearSession() {
+		Auth::logout();
 		// takes you to the login page so you can log back in
 		header('Location: /php/login/login.php');
 		die();
 	}
 
 	// run the clearSession function
+
 	clearSession();
 ?>

@@ -3,9 +3,6 @@
 require_once("db_constants_nat_park.php");
 require_once("db_connect.php");
 
-// Tell PDO to throw exceptions on error
-$dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 // using SQL to delete table if it exists
 $drop = 'DROP TABLE IF EXISTS national_parks';
 // executes the drop variable
